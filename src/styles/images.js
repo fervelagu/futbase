@@ -1,0 +1,1 @@
+export const SPLASH = require("../../assets/splash.png")
