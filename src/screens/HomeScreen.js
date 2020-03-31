@@ -80,6 +80,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     tabStyle: {
+        backgroundColor: COLORS.TEAM_PRIMARY,
         flexDirection: 'row',
         padding: 12
     },
