@@ -1,14 +1,15 @@
 import React from 'react';
-import { StyleSheet, View, ImageBackground } from 'react-native';
+import { StyleSheet, ImageBackground } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { COLORS, IMGS } from '../styles';
 
 export default function Wrapper({ children }) {
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <ImageBackground source={IMGS.SPLASH} style={styles.bg}>
                 {children}
             </ImageBackground>
-        </View>
+        </SafeAreaView>
     )
 }
 
