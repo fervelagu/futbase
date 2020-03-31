@@ -90,11 +90,11 @@ const styles = StyleSheet.create({
         alignItems: "center"
     },
     active: {
-        color: COLORS.WHITE,
+        color: COLORS.TEAM_SECONDARY,
         fontWeight: "bold"
     },
     inactive: {
-        color: COLORS.BLACK_TRA,
+        color: COLORS.WHITE_BLUR,
         fontWeight: "bold"
     }
 });
