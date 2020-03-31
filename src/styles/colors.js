@@ -1,5 +1,5 @@
-export const TEAM_PRIMARY = "#152342";
-export const TEAM_SECONDARY = "#FFFCD3";
+export const TEAM_PRIMARY = "rgb(0, 122, 255)";
+export const TEAM_SECONDARY = "#FFF";
 export const BLACK = "black";
 export const BLACK_BLUR = "#00000038";
 export const BLACK_TRA = "rgba(0, 0, 0, 0.5)";
