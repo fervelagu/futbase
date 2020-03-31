@@ -30,7 +30,7 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <NavigationContainer>
-        <Homebar.Navigator>
+        <Homebar.Navigator initialRouteName="Home">
           <Homebar.Screen name="Fan">
             {() => Fan()}
           </Homebar.Screen>
