@@ -2,16 +2,12 @@ import React from 'react';
 import { StyleSheet, Text } from 'react-native';
 import Wrapper from '../components/Wrapper';
 
-export default class HomeScreen extends React.Component {
+export default class FanScreen extends React.Component {
     render() {
         return (
             <Wrapper>
-                <Text>HomeScreen.js</Text>
+                <Text>FanScreen.js</Text>
             </Wrapper>
         )
     }
 }
-
-const s = StyleSheet.create({
-    container: {}
-})
