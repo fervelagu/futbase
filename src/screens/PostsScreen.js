@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, FlatList } from 'react-native';
+import { FlatList } from 'react-native';
 import { Post } from '../components/Post';
 import { IMGS } from '../styles';
 
@@ -34,12 +34,13 @@ export default class PostsScreen extends React.Component {
         console.log("more posts...");
     }
 
-    _keyExtractor = (item, index) => index.toString();
+    _keyExtractor = (index) => index.toString();
 
     _renderItem(post, index) {
         return (
             <Post
                 data={post}
+                index={index}
                 onPress={post.onPress}
                 onLike={post.onLike}
                 onShare={post.onShare}
@@ -49,17 +50,15 @@ export default class PostsScreen extends React.Component {
 
     render() {
         return (
-            <View>
-                <FlatList
-                    data={this.state.posts}
-                    onRefresh={() => this._onRefresh()}
-                    keyExtractor={this._keyExtractor}
-                    refreshing={this.state.refreshing}
-                    renderItem={({ item, index }) => this._renderItem(item, index)}
-                    onEndReached={() => this._morePosts()}
-                    onEndReachedThreshold={0.7}
-                />
-            </View>
+            <FlatList
+                data={this.state.posts}
+                onRefresh={() => this._onRefresh()}
+                keyExtractor={this._keyExtractor}
+                refreshing={this.state.refreshing}
+                renderItem={({ item, index }) => this._renderItem(item, index)}
+                onEndReached={() => this._morePosts()}
+                onEndReachedThreshold={0.7}
+            />
         )
     }
 }

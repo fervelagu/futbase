@@ -2,10 +2,11 @@ import React from "react";
 import { TouchableHighlight, View, ImageBackground, StyleSheet, Text, Image } from "react-native";
 import { COLORS, IMGS } from "../styles";
 
-export const Post = ({ data, onPress, onLike, onShare }) => {
+export const Post = ({ data, index, onPress, onLike, onShare }) => {
     const { title, img, likes } = data;
     return (
         <TouchableHighlight
+            key={index}
             onPress={() => onPress()}
             underlayColor={"transparent"}
             style={styles.container}>
