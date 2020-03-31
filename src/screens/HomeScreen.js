@@ -5,6 +5,7 @@ import Wrapper from '../components/Wrapper';
 import { Loading } from '../components/Loading';
 import { HeaderMatch } from '../components/HeaderMatch';
 import PostsScreen from './PostsScreen';
+import VideosScreen from './VideosScreen';
 import { COLORS } from '../styles';
 
 const Hometabs = createMaterialTopTabNavigator();
@@ -40,8 +41,9 @@ function HomeTab({ state, descriptors, navigation }) {
                         accessibilityStates={isFocused ? ['selected'] : []}
                         accessibilityLabel={options.tabBarAccessibilityLabel}
                         testID={options.tabBarTestID}
-                        onPress={onPress}>
-                        <Text style={isFocused ? styles.active : inactive}>{label}</Text>
+                        onPress={onPress}
+                        style={styles.tabContainer}>
+                        <Text style={isFocused ? styles.active : styles.inactive}>{label}</Text>
                     </TouchableOpacity>
                 );
             })}
@@ -67,6 +69,7 @@ export default function HomeScreen() {
             <HeaderMatch match={defaultMatch} />
             <Hometabs.Navigator tabBar={props => <HomeTab {...props} />}>
                 <Hometabs.Screen name="Posts" component={PostsScreen} />
+                <Hometabs.Screen name="Videos" component={VideosScreen} />
             </Hometabs.Navigator>
         </Wrapper>
     )
@@ -83,6 +86,9 @@ const styles = StyleSheet.create({
         backgroundColor: COLORS.TEAM_PRIMARY,
         flexDirection: 'row',
         padding: 12
+    },
+    tabContainer: {
+        width: "25%"
     },
     active: {
         color: COLORS.WHITE,
