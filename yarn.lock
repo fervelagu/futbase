@@ -1131,6 +1131,14 @@
   resolved "https://registry.yarnpkg.com/@react-native-community/masked-view/-/masked-view-0.1.5.tgz#25421be6cd943a4b1660b62cfbcd45be8891462c"
   integrity sha512-Lj1DzfCmW0f4HnmHtEuX8Yy2f7cnUA8r5KGGUuDDGtQt1so6QJkKeUmsnLo2zYDtsF8due6hvIL06Vdo5xxuLQ==
 
+"@react-navigation/bottom-tabs@^5.2.5":
+  version "5.2.5"
+  resolved "https://registry.yarnpkg.com/@react-navigation/bottom-tabs/-/bottom-tabs-5.2.5.tgz#d434dbf99bd963005d13d05eec3558ae12b9f1af"
+  integrity sha512-LTix/ToVcHoqlCAeusIyNzuhhkWHqKnqhuH4fpB6WeWwg2BiCGa6FVq+Gq/RiZijIF8CcAll/0NIFUfllB/oGw==
+  dependencies:
+    color "^3.1.2"
+    react-native-iphone-x-helper "^1.2.1"
+
 "@react-navigation/core@^5.3.2":
   version "5.3.2"
   resolved "https://registry.yarnpkg.com/@react-navigation/core/-/core-5.3.2.tgz#f3a1190b03dc32a26de2d69659a1509662c85e33"
@@ -1142,6 +1150,13 @@
     query-string "^6.11.1"
     react-is "^16.13.0"
     use-subscription "^1.4.0"
+
+"@react-navigation/material-top-tabs@^5.1.7":
+  version "5.1.7"
+  resolved "https://registry.yarnpkg.com/@react-navigation/material-top-tabs/-/material-top-tabs-5.1.7.tgz#4975d5d02fe1beb6665bd1e2b49a627c5800d50f"
+  integrity sha512-GffgvFmbr/wpV7B+sBou+OUf1qqwCjvbeNoZpKjekU795ZqnC+KPRvLNeGX7Pd9CQ1+K/7O4CHvs9O22v5mEaQ==
+  dependencies:
+    color "^3.1.2"
 
 "@react-navigation/native@^5.1.4":
   version "5.1.4"
@@ -4342,6 +4357,11 @@ react-native-screens@2.0.0-alpha.12:
   integrity sha512-x9M7FEdcm97bVDp3pi//nhduJHLFMrmDQs0fq299yx3kHdgHbrmhsa8jgW4HvDQhjyPE0FWADY/GrXFuPRj80w==
   dependencies:
     debounce "^1.2.0"
+
+react-native-tab-view@^2.13.0:
+  version "2.13.0"
+  resolved "https://registry.yarnpkg.com/react-native-tab-view/-/react-native-tab-view-2.13.0.tgz#23037aa43b0f8f682ddc20415a4baaaf6f82ae8f"
+  integrity sha512-AeYbp/u91+D/C9+PmVEPBmFb3ixv8IkLMC3Sc5MajJ/fg0Zl3Of+BcEknBvTnKoe7Fj2y8+Qf9zorBbh5xzh4A==
 
 react-native-view-shot@3.0.2:
   version "3.0.2"

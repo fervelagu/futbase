@@ -7,6 +7,8 @@ import { HeaderMatch } from '../components/HeaderMatch';
 import PostsScreen from './PostsScreen';
 import VideosScreen from './VideosScreen';
 import { COLORS } from '../styles';
+import StatisticsScreen from './StatisticsScreen';
+import CalendarScreen from './CalendarScreen';
 
 const Hometabs = createMaterialTopTabNavigator();
 
@@ -70,25 +72,22 @@ export default function HomeScreen() {
             <Hometabs.Navigator tabBar={props => <HomeTab {...props} />}>
                 <Hometabs.Screen name="Posts" component={PostsScreen} />
                 <Hometabs.Screen name="Videos" component={VideosScreen} />
+                <Hometabs.Screen name="Statistics" component={StatisticsScreen} />
+                <Hometabs.Screen name="Calendar" component={CalendarScreen} />
             </Hometabs.Navigator>
         </Wrapper>
     )
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
     tabStyle: {
         backgroundColor: COLORS.TEAM_PRIMARY,
         flexDirection: 'row',
         padding: 12
     },
     tabContainer: {
-        width: "25%"
+        width: "25%",
+        alignItems: "center"
     },
     active: {
         color: COLORS.WHITE,
