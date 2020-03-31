@@ -15,7 +15,7 @@ const Homebar = createBottomTabNavigator();
 const TabBarIcon = ({ name, focused }) => (
   <Icon name={name}
     style={{
-      color: focused ? COLORS.TEAM_PRIMARY : COLORS.BLACK_BLUR
+      color: focused ? COLORS.TEAM_SECONDARY : COLORS.TEAM_PRIMARY
     }}
   />
 );
@@ -24,7 +24,13 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <NavigationContainer>
-        <Homebar.Navigator initialRouteName="Fan">
+        <Homebar.Navigator
+          initialRouteName="Fan"
+          tabBarOptions={{
+            activeTintColor: COLORS.TEAM_SECONDARY,
+            inactiveTintColor: COLORS.TEAM_PRIMARY
+          }}
+        >
           <Homebar.Screen name="Fan" component={FanScreen}
             options={{
               tabBarIcon: ({ focused }) => <TabBarIcon name="person" focused={focused} />
@@ -47,7 +53,7 @@ export default function App() {
           />
           <Homebar.Screen name="Team" component={TeamScreen}
             options={{
-              tabBarIcon: ({ focused }) => <TabBarIcon name="shirt" focused={focused} />
+              tabBarIcon: ({ focused }) => <TabBarIcon name="flag" focused={focused} />
             }}
           />
         </Homebar.Navigator>
