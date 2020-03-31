@@ -5,6 +5,9 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import FanScreen from './src/screens/FanScreen';
 import HomeScreen from './src/screens/HomeScreen';
+import MatchesScreen from './src/screens/MatchesScreen';
+import RewardsScreen from './src/screens/RewardsScreen';
+import TeamScreen from './src/screens/TeamScreen';
 
 const Stack = createStackNavigator();
 const Homebar = createBottomTabNavigator();
@@ -21,11 +24,12 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <NavigationContainer>
-        <Homebar.Navigator initialRouteName="Home">
-          <Homebar.Screen name="Fan">
-            {() => Fan()}
-          </Homebar.Screen>
+        <Homebar.Navigator initialRouteName="Fan">
+          <Homebar.Screen name="Fan" component={FanScreen} />
+          <Homebar.Screen name="Matches" component={MatchesScreen} />
           <Homebar.Screen name="Home" component={HomeScreen} />
+          <Homebar.Screen name="Rewards" component={RewardsScreen} />
+          <Homebar.Screen name="Team" component={TeamScreen} />
         </Homebar.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>
