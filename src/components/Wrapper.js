@@ -1,20 +1,20 @@
 import React from 'react';
-import { StyleSheet, ImageBackground } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { StyleSheet, ImageBackground, View } from 'react-native';
 import { COLORS, IMGS } from '../styles';
 
 export default function Wrapper({ children }) {
     return (
-        <SafeAreaView style={styles.container}>
+        <View style={styles.container}>
             <ImageBackground source={IMGS.SPLASH} style={styles.bg}>
                 {children}
             </ImageBackground>
-        </SafeAreaView>
+        </View>
     )
 }
 
 const styles = StyleSheet.create({
     container: {
+        paddingTop: 35,
         backgroundColor: COLORS.TEAM_PRIMARY
     },
     bg: {
