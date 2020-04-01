@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Dimensions, TouchableHighlight, Text } from 'react-native';
-import Wrapper from '../components/Wrapper';
+import { Wrapper } from '../components/Wrapper';
 import { COLORS } from '../styles';
 import { Icon } from 'native-base';
 import { MaterialCommunityIcons as MaterialIcon } from '@expo/vector-icons';
@@ -35,7 +35,7 @@ export default class FanScreen extends React.Component {
                                 <Text style={styles.userProfileValue}>0</Text>
                             </TouchableHighlight>
                             <View style={{ flexDirection: "row", paddingVertical: 6 }}>
-                                <Text style={styles.userProfileDescription}>team COIN</Text>
+                                <Text style={styles.userProfileDescription}>points</Text>
                                 <Icon name={"refresh"} style={styles.refresh} />
                             </View>
                         </View>
@@ -56,7 +56,7 @@ export default class FanScreen extends React.Component {
                 <View style={styles.container}>
                     <View style={styles.row}>
                         <TouchableHighlight style={styles.rowItem} underlayColor={"transparent"}
-                            onPress={() => this.props.navigation.navigate('Surveys')}>
+                            onPress={() => this.props.navigation.navigate('Checkin')}>
                             <View style={styles.rowView}>
                                 <MaterialIcon name={"map-marker"} style={styles.icon} />
                                 <Text style={styles.itemTitle}>CHECK-IN</Text>
@@ -64,7 +64,7 @@ export default class FanScreen extends React.Component {
                             </View>
                         </TouchableHighlight>
                         <TouchableHighlight style={styles.rowItem} underlayColor={"transparent"}
-                            onPress={() => console.log()}>
+                            onPress={() => this.props.navigation.navigate('QR')}>
                             <View style={styles.rowView}>
                                 <MaterialIcon name={"qrcode-scan"} style={styles.icon} />
                                 <Text style={styles.itemTitle}>QR</Text>

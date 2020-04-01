@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import Wrapper from '../components/Wrapper';
+import { Wrapper } from '../components/Wrapper';
 import { Loading } from '../components/Loading';
 import { HeaderMatch } from '../components/HeaderMatch';
 import PostsScreen from './PostsScreen';

@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, ImageBackground, View } from 'react-native';
 import { COLORS, IMGS } from '../styles';
 
-export default function Wrapper({ children, color }) {
+export const Wrapper = ({ children, color }) => {
     return (
         <View style={styles.container}>
             {!color ?

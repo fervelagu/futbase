@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import { COLORS } from '../styles';
-import Wrapper from '../components/Wrapper';
+import { Wrapper } from '../components/Wrapper';
 
 export default class SurveysScreen extends React.Component {
     render() {
