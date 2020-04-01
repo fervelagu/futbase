@@ -53,18 +53,24 @@ export default class FanScreen extends React.Component {
                     </View>
                 </View>
                 <View style={styles.container}>
-                    <TouchableHighlight style={styles.rowItem} underlayColor={"transparent"}>
-                        <View style={styles.rowView}>
-                            <Icon name={"trophy"} style={styles.icon} />
-                            <Text style={styles.itemTitle}>
-                                TRIVIAS
-                            </Text>
-                            <Text style={styles.itemDesc}
-                                numberOfLines={1}>
-                                Responde las trivias
-                            </Text>
-                        </View>
-                    </TouchableHighlight>
+                    <View style={styles.row}>
+                        <TouchableHighlight style={styles.rowItem} underlayColor={"transparent"}
+                            onPress={() => this.props.navigation.navigate('Surveys')}>
+                            <View style={styles.rowView}>
+                                <Icon name={"trophy"} style={styles.icon} />
+                                <Text style={styles.itemTitle}>TRIVIAS</Text>
+                                <Text style={styles.itemDesc}>Responde las trivias</Text>
+                            </View>
+                        </TouchableHighlight>
+                        <TouchableHighlight style={styles.rowItem} underlayColor={"transparent"}
+                            onPress={() => this.props.navigation.navigate('Surveys')}>
+                            <View style={styles.rowView}>
+                                <Icon name={"trophy"} style={styles.icon} />
+                                <Text style={styles.itemTitle}>TRIVIAS</Text>
+                                <Text style={styles.itemDesc}>Responde las trivias</Text>
+                            </View>
+                        </TouchableHighlight>
+                    </View>
                 </View>
             </Wrapper>
         )
@@ -128,6 +134,10 @@ const styles = StyleSheet.create({
         flexWrap: "nowrap",
         padding: 12,
         backgroundColor: COLORS.WHITE
+    },
+    row: {
+        flexDirection: "row",
+        justifyContent: "space-around"
     },
     rowItem: {
         borderWidth: 1,

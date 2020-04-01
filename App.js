@@ -2,8 +2,8 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import FanScreen from './src/screens/FanScreen';
 import HomeScreen from './src/screens/HomeScreen';
+import FanNavigator from './src/navigation/FanNavigator';
 import MatchesScreen from './src/screens/MatchesScreen';
 import RewardsScreen from './src/screens/RewardsScreen';
 import TeamScreen from './src/screens/TeamScreen';
@@ -31,7 +31,7 @@ export default function App() {
             inactiveTintColor: COLORS.TEAM_PRIMARY
           }}
         >
-          <Homebar.Screen name="Fan" component={FanScreen}
+          <Homebar.Screen name="Fan" component={FanNavigator}
             options={{
               tabBarIcon: ({ focused }) => <TabBarIcon name="person" focused={focused} />
             }}
