@@ -33,27 +33,27 @@ export default function App() {
         >
           <Homebar.Screen name="Fan" component={FanNavigator}
             options={{
-              tabBarIcon: ({ focused }) => <TabBarIcon name="person" focused={focused} />
+              tabBarIcon: ({ focused }) => <TabBarIcon name="md-person" focused={focused} />
             }}
           />
           <Homebar.Screen name="Matches" component={MatchesScreen}
             options={{
-              tabBarIcon: ({ focused }) => <TabBarIcon name="football" focused={focused} />
+              tabBarIcon: ({ focused }) => <TabBarIcon name="md-football" focused={focused} />
             }}
           />
           <Homebar.Screen name="Home" component={HomeScreen}
             options={{
-              tabBarIcon: ({ focused }) => <TabBarIcon name="home" focused={focused} />
+              tabBarIcon: ({ focused }) => <TabBarIcon name="md-home" focused={focused} />
             }}
           />
           <Homebar.Screen name="Rewards" component={RewardsScreen}
             options={{
-              tabBarIcon: ({ focused }) => <TabBarIcon name="trophy" focused={focused} />
+              tabBarIcon: ({ focused }) => <TabBarIcon name="md-trophy" focused={focused} />
             }}
           />
           <Homebar.Screen name="Team" component={TeamScreen}
             options={{
-              tabBarIcon: ({ focused }) => <TabBarIcon name="flag" focused={focused} />
+              tabBarIcon: ({ focused }) => <TabBarIcon name="md-flag" focused={focused} />
             }}
           />
         </Homebar.Navigator>

@@ -3,7 +3,7 @@ import { StyleSheet, View, Dimensions, TouchableHighlight, Text } from 'react-na
 import Wrapper from '../components/Wrapper';
 import { COLORS } from '../styles';
 import { Icon } from 'native-base';
-import { MaterialCommunityIcons as MaterialIcon} from '@expo/vector-icons';
+import { MaterialCommunityIcons as MaterialIcon } from '@expo/vector-icons';
 
 export default class FanScreen extends React.Component {
     render() {
@@ -24,7 +24,7 @@ export default class FanScreen extends React.Component {
 
                     <View style={styles.headerOption}>
                         <View style={styles.menuIconButton}>
-                            <Icon name="person" style={styles.menuIcon} />
+                            <Icon name="md-person" style={styles.menuIcon} />
                         </View>
                         <View style={styles.userProfileInfo}>
                             <Text style={styles.userProfileLabel}>
@@ -46,7 +46,7 @@ export default class FanScreen extends React.Component {
                             onPress={() => console.log()}
                             underlayColor={"transparent"}
                             style={styles.menuIconButton}>
-                            <Icon name={"person"} style={styles.menuIcon} />
+                            <Icon name={"md-person"} style={styles.menuIcon} />
                         </TouchableHighlight>
                         <Text style={styles.menuLabel}>
                             Profile
@@ -58,9 +58,9 @@ export default class FanScreen extends React.Component {
                         <TouchableHighlight style={styles.rowItem} underlayColor={"transparent"}
                             onPress={() => this.props.navigation.navigate('Surveys')}>
                             <View style={styles.rowView}>
-                                <Icon name={"trophy"} style={styles.icon} />
-                                <Text style={styles.itemTitle}>TRIVIAS</Text>
-                                <Text style={styles.itemDesc}>Responde las trivias</Text>
+                                <MaterialIcon name={"map-marker"} style={styles.icon} />
+                                <Text style={styles.itemTitle}>CHECK-IN</Text>
+                                <Text style={styles.itemDesc}>Haz check-in y gana puntos!</Text>
                             </View>
                         </TouchableHighlight>
                         <TouchableHighlight style={styles.rowItem} underlayColor={"transparent"}
@@ -68,7 +68,17 @@ export default class FanScreen extends React.Component {
                             <View style={styles.rowView}>
                                 <MaterialIcon name={"qrcode-scan"} style={styles.icon} />
                                 <Text style={styles.itemTitle}>QR</Text>
-                                <Text style={styles.itemDesc}>Escanea QRS!</Text>
+                                <Text style={styles.itemDesc}>Escanea y gana puntos!</Text>
+                            </View>
+                        </TouchableHighlight>
+                    </View>
+                    <View style={styles.row}>
+                        <TouchableHighlight style={styles.rowItem} underlayColor={"transparent"}
+                            onPress={() => this.props.navigation.navigate('Surveys')}>
+                            <View style={styles.rowView}>
+                                <MaterialIcon name={"playlist-edit"} style={styles.icon} />
+                                <Text style={styles.itemTitle}>TRIVIAS</Text>
+                                <Text style={styles.itemDesc}>Participa y gana puntos!</Text>
                             </View>
                         </TouchableHighlight>
                     </View>
@@ -137,12 +147,13 @@ const styles = StyleSheet.create({
         backgroundColor: COLORS.WHITE
     },
     row: {
-        flexDirection: "row",
-        justifyContent: "space-around"
+        flexDirection: "row"
     },
     rowItem: {
         borderWidth: 1,
         borderRadius: 10,
+        marginTop: 10,
+        marginLeft: 10,
         borderColor: COLORS.TEAM_PRIMARY,
         height: (Dimensions.get("screen").height) / 6,
         width: (Dimensions.get("screen").width - 50) / 2
