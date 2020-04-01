@@ -5,7 +5,7 @@ import SurveysScreen from '../screens/SurveysScreen';
 
 const Fan = createStackNavigator();
 
-export default function FanNavigator({ navigation }) {
+export default function FanNavigator() {
     return (
         <Fan.Navigator headerMode="none" initialRouteName="Fan">
             <Fan.Screen name="Fan" component={FanScreen} />

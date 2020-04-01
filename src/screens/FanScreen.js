@@ -3,6 +3,7 @@ import { StyleSheet, View, Dimensions, TouchableHighlight, Text } from 'react-na
 import Wrapper from '../components/Wrapper';
 import { COLORS } from '../styles';
 import { Icon } from 'native-base';
+import { MaterialCommunityIcons as MaterialIcon} from '@expo/vector-icons';
 
 export default class FanScreen extends React.Component {
     render() {
@@ -63,11 +64,11 @@ export default class FanScreen extends React.Component {
                             </View>
                         </TouchableHighlight>
                         <TouchableHighlight style={styles.rowItem} underlayColor={"transparent"}
-                            onPress={() => this.props.navigation.navigate('Surveys')}>
+                            onPress={() => console.log()}>
                             <View style={styles.rowView}>
-                                <Icon name={"trophy"} style={styles.icon} />
-                                <Text style={styles.itemTitle}>TRIVIAS</Text>
-                                <Text style={styles.itemDesc}>Responde las trivias</Text>
+                                <MaterialIcon name={"qrcode-scan"} style={styles.icon} />
+                                <Text style={styles.itemTitle}>QR</Text>
+                                <Text style={styles.itemDesc}>Escanea QRS!</Text>
                             </View>
                         </TouchableHighlight>
                     </View>
