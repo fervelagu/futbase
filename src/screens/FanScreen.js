@@ -1,6 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Dimensions, TouchableHighlight, Image, Text } from 'react-native';
-import { heightPercentageToDP, widthPercentageToDP } from "react-native-responsive-screen";
+import { StyleSheet, View, Dimensions, TouchableHighlight, Text } from 'react-native';
 import Wrapper from '../components/Wrapper';
 import { COLORS } from '../styles';
 import { Icon } from 'native-base';
