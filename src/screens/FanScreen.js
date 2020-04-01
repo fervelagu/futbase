@@ -2,24 +2,20 @@ import React from 'react';
 import { StyleSheet, View, Dimensions, TouchableHighlight, Image, Text } from 'react-native';
 import { heightPercentageToDP, widthPercentageToDP } from "react-native-responsive-screen";
 import Wrapper from '../components/Wrapper';
-import { COLORS, IMGS } from '../styles';
+import { COLORS } from '../styles';
+import { Icon } from 'native-base';
 
 export default class FanScreen extends React.Component {
     render() {
         return (
-            <Wrapper>
+            <Wrapper color>
                 <View style={styles.header}>
                     <View style={styles.headerOption}>
                         <TouchableHighlight
                             onPress={() => console.log()}
                             underlayColor={"transparent"}
                             style={styles.menuIconButton}>
-                            <View style={styles.menuIconContainer}>
-                                <Image
-                                    source={IMGS.BALL_ICON}
-                                    style={styles.menuIcon}
-                                />
-                            </View>
+                            <Icon name={"trophy"} style={styles.menuIcon} />
                         </TouchableHighlight>
                         <Text style={styles.menuLabel}>
                             Leaderboard
@@ -27,33 +23,20 @@ export default class FanScreen extends React.Component {
                     </View>
 
                     <View style={styles.headerOption}>
-                        <View style={styles.headerProfileImageContainer}>
-                            {/* user img validation */}
-                            <Image
-                                source={IMGS.BALL_ICON}
-                                style={styles.profileImg}
-                            />
+                        <View style={styles.menuIconButton}>
+                        <Icon name="person" style={styles.menuIcon} />
                         </View>
-
                         <View style={styles.userProfileInfo}>
                             <Text style={styles.userProfileLabel}>
                                 username
                             </Text>
-                            <Text style={styles.userProfileRangeLabel}>
-                                #teamHashtag
-                            </Text>
                             <TouchableHighlight
                                 underlayColor={"transparent"}>
-                                <View style={styles.balanceView}>
-                                    <Text style={styles.userProfileValue}>
-                                        0
-                                            </Text>
-                                </View>
+                                <Text style={styles.userProfileValue}>0</Text>
                             </TouchableHighlight>
-
                             <View style={{ flexDirection: "row", paddingVertical: 6 }}>
                                 <Text style={styles.userProfileDescription}>team COIN</Text>
-                                <Image source={IMGS.BALL_ICON} style={styles.refresh} />
+                                <Icon name={"refresh"} style={styles.refresh} />
                             </View>
                         </View>
                     </View>
@@ -63,37 +46,25 @@ export default class FanScreen extends React.Component {
                             onPress={() => console.log()}
                             underlayColor={"transparent"}
                             style={styles.menuIconButton}>
-                            <View style={styles.menuIconContainer}>
-                                <Image
-                                    source={IMGS.BALL_ICON}
-                                    style={styles.menuIcon}
-                                />
-                            </View>
+                            <Icon name={"person"} style={styles.menuIcon} />
                         </TouchableHighlight>
                         <Text style={styles.menuLabel}>
-                            PROFILE
+                            Profile
 						</Text>
                     </View>
 
                 </View>
                 <View style={styles.container}>
                     <TouchableHighlight style={styles.rowItem} underlayColor={"transparent"}>
-                        <View>
-                            <View style={styles.fanOptionIcon}>
-                                <Image
-                                    source={IMGS.BALL_ICON}
-                                    style={styles.icon}
-                                />
-                            </View>
-                            <View style={styles.fanOptionDescriptionContainer}>
-                                <Text style={styles.fanOptionDescriptionTitle}>
-                                    TRIVIAS
-                                </Text>
-                                <Text style={styles.fanOptionDescriptionDescription}
-                                    numberOfLines={1}>
-                                    Responde las trivias
-                                </Text>
-                            </View>
+                        <View style={styles.rowView}>
+                            <Icon name={"trophy"} style={styles.icon} />
+                            <Text style={styles.fanOptionDescriptionTitle}>
+                                TRIVIAS
+                            </Text>
+                            <Text style={styles.fanOptionDescriptionDescription}
+                                numberOfLines={1}>
+                                Responde las trivias
+                            </Text>
                         </View>
                     </TouchableHighlight>
                 </View>
@@ -113,46 +84,26 @@ const styles = StyleSheet.create({
         borderRadius: 25,
     },
     menuIconButton: {
+        backgroundColor: COLORS.WHITE,
+        borderRadius: 25,
         alignItems: "center",
         height: 50,
         marginTop: 20,
         width: 50
     },
-    menuIconContainer: {
-        alignItems: "center",
-        backgroundColor: COLORS.WHITE,
-        borderRadius: 25,
-        height: 50,
-        paddingTop: 5,
-        width: 50
-    },
-    headerProfileImageContainer: {
-        alignItems: "center",
-        height: 80,
-        width: 80
-    },
     menuIcon: {
-        marginTop: 8,
-        height: 23,
-        width: 23
+        color: COLORS.TEAM_PRIMARY,
+        fontSize: 25,
+        paddingTop: 12
     },
     menuLabel: {
         color: COLORS.WHITE,
         fontSize: 15,
         paddingVertical: 3
     },
-    profileImg: {
-        backgroundColor: COLORS.WHITE,
-        borderColor: COLORS.TEAM_SECONDARY,
-        borderWidth: 4,
-        borderRadius: 50,
-        height: 100,
-        width: 100
-    },
     userProfileInfo: {
-        marginTop: 24,
+        marginTop: 20,
         flexDirection: "column",
-        justifyContent: "center",
         alignItems: "center"
     },
     userProfileLabel: {
@@ -174,13 +125,10 @@ const styles = StyleSheet.create({
         fontSize: 26,
         fontWeight: "bold"
     },
-    balanceView: {
-        flexDirection: "row",
-    },
     refresh: {
-        alignSelf: "flex-end",
-        width: 15,
-        height: 15
+        color: COLORS.WHITE,
+        paddingHorizontal: 12,
+        fontSize: 15
     },
     userProfileDescription: {
         color: COLORS.WHITE,
@@ -196,15 +144,16 @@ const styles = StyleSheet.create({
         flexDirection: "row"
     },
     rowItem: {
-        alignItems: "center",
-        backgroundColor: COLORS.WHITE,
-        borderColor: COLORS.TEAM_PRIMARY,
         borderWidth: 1,
         borderRadius: 10,
-        height: 130,
-        marginLeft: 10,
-        marginTop: 10,
+        borderColor: COLORS.TEAM_PRIMARY,
+        height: (Dimensions.get("screen").height) / 6,
         width: (Dimensions.get("screen").width - 50) / 2
+    },
+    rowView: {
+        height: "100%",
+        alignItems: "center",
+        justifyContent: "center"
     },
     fanOptionIcon: {
         alignItems: "center",
@@ -215,8 +164,8 @@ const styles = StyleSheet.create({
         width: 50
     },
     icon: {
-        height: 50,
-        width: 50
+        color: COLORS.TEAM_PRIMARY,
+        fontSize: 50
     },
     fanOptionDescriptionContainer: {
         alignItems: "center"
