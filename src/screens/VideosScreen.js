@@ -1,7 +1,7 @@
 import React from 'react';
-import { FlatList } from 'react-native';
-import { Post } from '../components/Post';
-import { IMGS } from '../styles';
+import { FlatList, Text } from 'react-native';
+import { Video } from '../components/Video';
+import { DEFAULT_VIDEO } from "../constants/TeamConfig"
 
 export default class VideosScreen extends React.Component {
 
@@ -11,8 +11,7 @@ export default class VideosScreen extends React.Component {
         this.state = {
             videos: [
                 {
-                    title: "notice title",
-                    video: IMGS.NOTE_DEFAULT,
+                    url: DEFAULT_VIDEO,
                 }
             ],
             refreshing: false,
@@ -34,20 +33,14 @@ export default class VideosScreen extends React.Component {
 
     _renderItem(video, index) {
         return (
-            <Post
-                data={video}
-                index={index}
-                onPress={video.onPress}
-                onLike={video.onLike}
-                onShare={video.onShare}
-            />
+            <Video key={index} video={video.url} />
         )
     }
 
     render() {
         return (
             <FlatList
-                data={this.state.posts}
+                data={this.state.videos}
                 onRefresh={() => this._onRefresh()}
                 keyExtractor={this._keyExtractor}
                 refreshing={this.state.refreshing}
