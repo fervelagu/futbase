@@ -8,6 +8,7 @@ import VideosScreen from './VideosScreen';
 import { COLORS } from '../styles';
 import StatisticsScreen from './StatisticsScreen';
 import CalendarScreen from './CalendarScreen';
+import PostsNavigator from '../navigation/PostsNavigator';
 
 const Hometabs = createMaterialTopTabNavigator();
 const defaultMatch = {
@@ -67,7 +68,7 @@ export default HomeScreen = () => (
     <Wrapper>
         <HeaderMatch match={defaultMatch} />
         <Hometabs.Navigator tabBar={props => <HomeTab {...props} />}>
-            <Hometabs.Screen name="Posts" component={PostsScreen} />
+            <Hometabs.Screen name="Posts" component={PostsNavigator} />
             <Hometabs.Screen name="Videos" component={VideosScreen} />
             <Hometabs.Screen name="Statistics" component={StatisticsScreen} />
             <Hometabs.Screen name="Calendar" component={CalendarScreen} />

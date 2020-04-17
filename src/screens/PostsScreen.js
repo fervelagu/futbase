@@ -14,7 +14,7 @@ export default class PostsScreen extends React.Component {
                     title: "notice title",
                     img: IMGS.NOTE_DEFAULT,
                     likes: 100,
-                    onPress: () => console.log(),
+                    onPress: () => this.props.navigation.navigate("Detail"),
                     onLike: () => console.log(),
                     onShare: () => console.log()
                 }
