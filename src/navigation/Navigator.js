@@ -5,9 +5,26 @@ import { Icon } from "native-base";
 import { COLORS } from "../styles";
 import MatchesScreen from "../screens/MatchesScreen";
 import FanNavigator from "./FanNavigator";
-import HomeScreen from "../screens/HomeScreen";
 import RewardsScreen from "../screens/RewardsScreen";
 import TeamScreen from "../screens/TeamScreen";
+import HomeScreen from "../screens/HomeScreen";
+import DetailScreen from "../screens/DetailScreen";
+
+const App = createStackNavigator();
+const AppNavigator = () => (
+    <App.Navigator initialRouteName="App" headerMode="none">
+        {/* //TODO: add Auth navigation */}
+        <App.Screen name="App" component={BottomTabs} />
+    </App.Navigator>
+);
+
+const HomeStack = createStackNavigator();
+const HomeNavigator = () => (
+    <HomeStack.Navigator initialRouteName="Home" headerMode="none">
+        <HomeStack.Screen name="Home" component={HomeScreen} />
+        <HomeStack.Screen name="Detail" component={DetailScreen} />
+    </HomeStack.Navigator>
+);
 
 const TabBarIcon = ({ name, focused }) => (
     <Icon name={name}
@@ -15,14 +32,6 @@ const TabBarIcon = ({ name, focused }) => (
             color: focused ? COLORS.TEAM_SECONDARY : COLORS.TEAM_PRIMARY
         }}
     />
-);
-
-const HomeStack = createStackNavigator();
-const HomeNavigator = () => (
-    <HomeStack.Navigator initialRouteName="Home" headerMode="none">
-        <HomeStack.Screen name="Home" component={HomeScreen} />
-        {/* <HomeStack.Screen name="Detail" component={Detail} /> */}
-    </HomeStack.Navigator>
 );
 
 const BottomStack = createBottomTabNavigator();
@@ -54,14 +63,6 @@ const BottomTabs = () => (
                 tabBarIcon: ({ focused }) => <TabBarIcon name="md-flag" focused={focused} />
             }} />
     </BottomStack.Navigator>
-)
-
-const App = createStackNavigator();
-const AppNavigator = () => (
-    <App.Navigator initialRouteName="App" headerMode="none">
-        {/* //TODO: add Auth navigation */}
-        <App.Screen name="App" component={BottomTabs} />
-    </App.Navigator>
 );
 
 export default AppNavigator;
