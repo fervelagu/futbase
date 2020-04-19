@@ -1,8 +1,10 @@
 import React from 'react';
 import { View, Text } from 'react-native';
+import moment from "moment";
+
 
 export default class CalendarScreen extends React.Component {
-    render(){
+    render() {
         return (
             <View>
                 <Text>CalendarScreen.js</Text>

@@ -6,6 +6,7 @@ import PostsScreen from '../screens/PostsScreen';
 import VideosScreen from '../screens/VideosScreen';
 import StatisticsScreen from '../screens/StatisticsScreen';
 import CalendarScreen from '../screens/CalendarScreen';
+import { i18n } from '../utils/i18n';
 
 const Tab = ({ state, descriptors, navigation }) => (
     <View style={styles.tabStyle}>
@@ -50,10 +51,10 @@ const Tab = ({ state, descriptors, navigation }) => (
 const Tabs = createMaterialTopTabNavigator();
 TabsNavigator = () => (
     <Tabs.Navigator tabBar={props => <Tab {...props} />}>
-        <Tabs.Screen name="Posts" component={PostsScreen} />
-        <Tabs.Screen name="Videos" component={VideosScreen} />
-        <Tabs.Screen name="Statistics" component={StatisticsScreen} />
-        <Tabs.Screen name="Calendar" component={CalendarScreen} />
+        <Tabs.Screen name={i18n.t("Global.posts")} component={PostsScreen} />
+        <Tabs.Screen name={i18n.t("Global.videos")} component={VideosScreen} />
+        <Tabs.Screen name={i18n.t("Global.statistic")} component={StatisticsScreen} />
+        <Tabs.Screen name={i18n.t("Global.calendar")} component={CalendarScreen} />
     </Tabs.Navigator>
 );
 

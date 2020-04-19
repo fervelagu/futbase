@@ -1,9 +1,9 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { Text } from 'react-native';
 import { Wrapper } from '../components/Wrapper';
 
 export default class CheckinScreen extends React.Component {
-    render(){
+    render() {
         return (
             <Wrapper>
                 <Text>CheckinScreen.js</Text>

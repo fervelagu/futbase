@@ -5,8 +5,8 @@ import { HeaderMatch } from '../components/HeaderMatch';
 import TabsNavigator from '../navigation/HomeTabsNavigator';
 
 const defaultMatch = {
-    tournament: "Liga MX",
-    stadium: "Estadio Azteca",
+    tournament: "LIGA MX",
+    stadium: "Azteca Stadium",
     localAsset: "pumas",
     local_url: null,
     localTeam: "Pumas",
@@ -14,7 +14,7 @@ const defaultMatch = {
     visitorAsset: "america",
     visitor_url: null,
     visitTeam: "América",
-    date: "Sábado 25, ABRIL"
+    date: "Saturday 25, APRIL"
 };
 
 export default HomeScreen = () => (

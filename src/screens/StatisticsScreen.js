@@ -1,8 +1,12 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
+import { ScrollableTabView, ScrollableTabBar } from '@valdio/react-native-scrollable-tabview'
+import { TEST_TOURNAMENT } from "../constants/TeamConfig";
+
+const TOURNAMENT = TEST_TOURNAMENT;
 
 export default class StatisticsScreen extends React.Component {
-    render(){
+    render() {
         return (
             <View>
                 <Text>StatisticsScreen.js</Text>
@@ -10,3 +14,7 @@ export default class StatisticsScreen extends React.Component {
         )
     }
 }
+
+const styles = StyleSheet.create({
+
+});

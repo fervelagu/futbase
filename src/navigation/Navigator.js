@@ -9,6 +9,7 @@ import RewardsScreen from "../screens/RewardsScreen";
 import TeamScreen from "../screens/TeamScreen";
 import HomeScreen from "../screens/HomeScreen";
 import DetailScreen from "../screens/DetailScreen";
+import { i18n } from "../utils/i18n";
 
 const App = createStackNavigator();
 const AppNavigator = () => (
@@ -42,11 +43,11 @@ const BottomTabs = () => (
             activeTintColor: COLORS.TEAM_SECONDARY,
             inactiveTintColor: COLORS.TEAM_PRIMARY
         }}>
-        <BottomStack.Screen name="Matches" component={MatchesScreen}
+        <BottomStack.Screen name={i18n.t("Global.matches")} component={MatchesScreen}
             options={{
                 tabBarIcon: ({ focused }) => <TabBarIcon name="md-person" focused={focused} />
             }} />
-        <BottomStack.Screen name="Fan" component={FanNavigator}
+        <BottomStack.Screen name={i18n.t("Global.fan")} component={FanNavigator}
             options={{
                 tabBarIcon: ({ focused }) => <TabBarIcon name="md-football" focused={focused} />
             }} />
@@ -54,11 +55,11 @@ const BottomTabs = () => (
             options={{
                 tabBarIcon: ({ focused }) => <TabBarIcon name="md-home" focused={focused} />
             }} />
-        <BottomStack.Screen name="Rewards" component={RewardsScreen}
+        <BottomStack.Screen name={i18n.t("Global.rewards")} component={RewardsScreen}
             options={{
                 tabBarIcon: ({ focused }) => <TabBarIcon name="md-trophy" focused={focused} />
             }} />
-        <BottomStack.Screen name="Team" component={TeamScreen}
+        <BottomStack.Screen name={i18n.t("Global.team")} component={TeamScreen}
             options={{
                 tabBarIcon: ({ focused }) => <TabBarIcon name="md-flag" focused={focused} />
             }} />

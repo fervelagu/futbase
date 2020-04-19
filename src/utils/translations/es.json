@@ -1,0 +1,23 @@
+{
+  "Global": {
+    "matches": "Partidos",
+    "fan": "Fan",
+    "rewards": "Experiencias",
+    "team": "Equipo",
+    "posts": "Noticias",
+    "videos": "Videos",
+    "statistic": "Tablas",
+    "calendar": "Calendario"
+  },
+  "Fan": {
+    "ld": "Leaderboard",
+    "profile": "Perfil",
+    "points": "puntos",
+    "checkin": "CHECK-IN",
+    "checkinMsg": "Haz check-in y gana puntos!",
+    "qr": "QR",
+    "qrMsg": "Escanea y gana puntos!",
+    "survey": "TRIVIAS",
+    "surveyMsg": "Participa y gana puntos!"
+  }
+}

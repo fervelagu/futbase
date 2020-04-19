@@ -4,6 +4,7 @@ import { Wrapper } from '../components/Wrapper';
 import { COLORS } from '../styles';
 import { Icon } from 'native-base';
 import { MaterialCommunityIcons as MaterialIcon } from '@expo/vector-icons';
+import { i18n } from '../utils/i18n';
 
 export default class FanScreen extends React.Component {
     render() {
@@ -18,8 +19,8 @@ export default class FanScreen extends React.Component {
                             <Icon name={"trophy"} style={styles.menuIcon} />
                         </TouchableHighlight>
                         <Text style={styles.menuLabel}>
-                            Leaderboard
-						</Text>
+                            {i18n.t("Fan.ld")}
+                        </Text>
                     </View>
 
                     <View style={styles.headerOption}>
@@ -35,7 +36,7 @@ export default class FanScreen extends React.Component {
                                 <Text style={styles.userProfileValue}>0</Text>
                             </TouchableHighlight>
                             <View style={{ flexDirection: "row", paddingVertical: 6 }}>
-                                <Text style={styles.userProfileDescription}>points</Text>
+                                <Text style={styles.userProfileDescription}>{i18n.t("Fan.points")}</Text>
                                 <Icon name={"refresh"} style={styles.refresh} />
                             </View>
                         </View>
@@ -49,8 +50,8 @@ export default class FanScreen extends React.Component {
                             <Icon name={"md-person"} style={styles.menuIcon} />
                         </TouchableHighlight>
                         <Text style={styles.menuLabel}>
-                            Profile
-						</Text>
+                            {i18n.t("Fan.profile")}
+                        </Text>
                     </View>
                 </View>
                 <View style={styles.container}>
@@ -59,16 +60,16 @@ export default class FanScreen extends React.Component {
                             onPress={() => this.props.navigation.navigate('Checkin')}>
                             <View style={styles.rowView}>
                                 <MaterialIcon name={"map-marker"} style={styles.icon} />
-                                <Text style={styles.itemTitle}>CHECK-IN</Text>
-                                <Text style={styles.itemDesc}>Haz check-in y gana puntos!</Text>
+                                <Text style={styles.itemTitle}>{i18n.t("Fan.checkin")}</Text>
+                                <Text style={styles.itemDesc}>{i18n.t("Fan.checkinMsg")}</Text>
                             </View>
                         </TouchableHighlight>
                         <TouchableHighlight style={styles.rowItem} underlayColor={"transparent"}
                             onPress={() => this.props.navigation.navigate('QR')}>
                             <View style={styles.rowView}>
                                 <MaterialIcon name={"qrcode-scan"} style={styles.icon} />
-                                <Text style={styles.itemTitle}>QR</Text>
-                                <Text style={styles.itemDesc}>Escanea y gana puntos!</Text>
+                                <Text style={styles.itemTitle}>{i18n.t("Fan.qr")}</Text>
+                                <Text style={styles.itemDesc}>{i18n.t("Fan.qrMsg")}</Text>
                             </View>
                         </TouchableHighlight>
                     </View>
@@ -77,8 +78,8 @@ export default class FanScreen extends React.Component {
                             onPress={() => this.props.navigation.navigate('Surveys')}>
                             <View style={styles.rowView}>
                                 <MaterialIcon name={"playlist-edit"} style={styles.icon} />
-                                <Text style={styles.itemTitle}>TRIVIAS</Text>
-                                <Text style={styles.itemDesc}>Participa y gana puntos!</Text>
+                                <Text style={styles.itemTitle}>{i18n.t("Fan.survey")}</Text>
+                                <Text style={styles.itemDesc}>{i18n.t("Fan.surveyMsg")}</Text>
                             </View>
                         </TouchableHighlight>
                     </View>
