@@ -1,15 +1,16 @@
 import React from "react";
 import { TouchableHighlight, Image, View, Text, StyleSheet } from "react-native";
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from "@react-navigation/native";
 import { COLORS } from "../styles";
 import { Icon } from "native-base";
 
-export const BackButton = ({ title, icon }) => {
+export const BackButton = ({ title, icon, notWrapped }) => {
     const navigation = useNavigation();
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <TouchableHighlight
-                style={styles.touch}
+                style={[styles.touch, notWrapped && { marginTop: 20 }]}
                 onPress={() => navigation.goBack()}
                 underlayColor={"transparent"}>
                 <Icon name="md-arrow-back" style={styles.img} />
@@ -26,13 +27,12 @@ export const BackButton = ({ title, icon }) => {
                     </View>
                 )}
             </View>
-        </View>
+        </SafeAreaView>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
-        marginTop: 42,
         paddingLeft: 15
     },
     touch: {

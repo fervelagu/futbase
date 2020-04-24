@@ -21,7 +21,7 @@ export default class DetailScreen extends React.Component {
                     resizeMode="cover"
                     source={{ uri: img }}
                     style={styles.bg}>
-                    <BackButton />
+                    <BackButton notWrapped />
                 </ImageBackground>
                 <ScrollView>
                     <View style={styles.subContainer}>

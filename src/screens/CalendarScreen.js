@@ -7,10 +7,10 @@ import { TEAM_NAME } from '../constants/TeamConfig';
 
 export default class CalendarScreen extends React.Component {
     calendarTheme = {
-        calendarBackground: COLORS.WHITE,
-        dayTextColor: COLORS.TEAM_PRIMARY,
-        textSectionTitleColor: COLORS.TEAM_PRIMARY,
-        monthTextColor: COLORS.TEAM_PRIMARY,
+        calendarBackground: COLORS.TEAM_PRIMARY,
+        dayTextColor: COLORS.WHITE,
+        monthTextColor: COLORS.WHITE,
+        todayTextColor: COLORS.TEAM_SECONDARY,
     }
 
     getTeamImg(match) {
@@ -42,9 +42,9 @@ export default class CalendarScreen extends React.Component {
                         alignItems: 'flex-start'
                     },
                     text: {
-                        color: 'black',
+                        color: COLORS.TEAM_SECONDARY,
                         fontWeight: 'bold',
-                        fontSize: 10,
+                        fontSize: 12,
                     }
                 }
             }
@@ -57,8 +57,6 @@ export default class CalendarScreen extends React.Component {
     }
 
     openDetail = (matchId) => {
-        // TODO: MatchCalendar Screen
-        return
         this.props.navigation.navigate("MatchCalendar", {
             matchId: matchId
         });

@@ -9,6 +9,7 @@ import RewardsScreen from "../screens/RewardsScreen";
 import TeamScreen from "../screens/TeamScreen";
 import HomeScreen from "../screens/HomeScreen";
 import DetailScreen from "../screens/DetailScreen";
+import MatchCalendarScreen from "../screens/MatchCalendarScreen";
 import { i18n } from "../utils/i18n";
 
 const App = createStackNavigator();
@@ -24,6 +25,7 @@ const HomeNavigator = () => (
     <HomeStack.Navigator initialRouteName="Home" headerMode="none">
         <HomeStack.Screen name="Home" component={HomeScreen} />
         <HomeStack.Screen name="Detail" component={DetailScreen} />
+        <HomeStack.Screen name="MatchCalendar" component={MatchCalendarScreen} />
     </HomeStack.Navigator>
 );
 
