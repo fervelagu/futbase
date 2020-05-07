@@ -7,7 +7,8 @@
     "posts": "Noticias",
     "videos": "Videos",
     "statistic": "Tablas",
-    "calendar": "Calendario"
+    "calendar": "Calendario",
+    "noData": "No hay información para mostrar."
   },
   "Fan": {
     "ld": "Leaderboard",
