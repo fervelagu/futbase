@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
         position: "absolute",
         width: "100%",
         padding: 12,
-        backgroundColor: COLORS.BLACK_TRA,
+        backgroundColor: COLORS.BLACK_BLUR,
         alignItems: "center"
     },
     titleContainer: {

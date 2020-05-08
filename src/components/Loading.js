@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         alignSelf: "center",
-        backgroundColor: COLORS.BLACK_TRA,
+        backgroundColor: COLORS.BLACK_BLUR,
     },
     text: {
         paddingVertical: 12,

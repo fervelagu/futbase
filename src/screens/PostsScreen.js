@@ -2,6 +2,7 @@ import React from 'react';
 import { FlatList } from 'react-native';
 import { Post } from '../components/Post';
 import { IMGS } from '../styles';
+import { NoData } from '../components/NoData';
 
 export default class PostsScreen extends React.Component {
 
@@ -49,12 +50,14 @@ export default class PostsScreen extends React.Component {
     }
 
     render() {
+        const { posts, refreshing } = this.state;
+        if (!posts || !posts.length) return <NoData />
         return (
             <FlatList
-                data={this.state.posts}
+                data={posts}
                 onRefresh={() => this._onRefresh()}
                 keyExtractor={this._keyExtractor}
-                refreshing={this.state.refreshing}
+                refreshing={refreshing}
                 renderItem={({ item, index }) => this._renderItem(item, index)}
                 onEndReached={() => this._morePosts()}
                 onEndReachedThreshold={0.7}

@@ -1,9 +1,8 @@
 import React from 'react';
 import { CalendarList, LocaleConfig } from 'react-native-calendars';
 import moment from "moment";
-import { COLORS, IMGS } from "../styles"
+import { COLORS } from "../styles"
 import { matches } from '../constants/matches';
-import { TEAM_NAME } from '../constants/TeamConfig';
 
 export default class CalendarScreen extends React.Component {
     calendarTheme = {
@@ -11,14 +10,6 @@ export default class CalendarScreen extends React.Component {
         dayTextColor: COLORS.WHITE,
         monthTextColor: COLORS.WHITE,
         todayTextColor: COLORS.TEAM_SECONDARY,
-    }
-
-    getTeamImg(match) {
-        const rivalAsset = match.localAsset == TEAM_NAME ? match.visitorAsset : match.localAsset;
-        if (match.visitor_url || match.local_url) {
-            const rivalAssetUrl = match.localAsset == TEAM_NAME ? match.visitor_url : match.local_url;
-            return { uri: rivalAssetUrl };
-        } else return IMGS.getTeamLogo(rivalAsset);
     }
 
     constructor(props) {
@@ -37,14 +28,13 @@ export default class CalendarScreen extends React.Component {
             _dates[moment(item.globalDate).format('YYYY-MM-DD')] = {
                 id: item.id,
                 customStyles: {
-                    backgroundSrc: this.getTeamImg(item),
+                    // backgroundSrc: IMGS.getTeamLogo(item),
                     container: {
-                        alignItems: 'flex-start'
+                        backgroundColor: COLORS.TEAM_SECONDARY
                     },
                     text: {
-                        color: COLORS.TEAM_SECONDARY,
-                        fontWeight: 'bold',
-                        fontSize: 12,
+                        color: COLORS.TEAM_PRIMARY,
+                        fontWeight: 'bold'
                     }
                 }
             }

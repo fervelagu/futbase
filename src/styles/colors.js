@@ -1,8 +1,7 @@
 export const TEAM_PRIMARY = "#1A326E";
 export const TEAM_SECONDARY = "#FF5733";
 export const BLACK = "black";
-export const BLACK_BLUR = "#00000038";
-export const BLACK_TRA = "rgba(0, 0, 0, 0.5)";
+export const BLACK_BLUR = "rgba(0, 0, 0, 0.7)";
 export const BLUE_LIGHT = "#327bd9";
 export const BLUE_HIGHT = "#005cb5";
 export const GRAY = "gray";
