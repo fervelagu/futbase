@@ -1,67 +1,86 @@
-import React from 'react';
-import { FlatList } from 'react-native';
-import { Post } from '../components/Post';
-import { IMGS } from '../styles';
-import { NoData } from '../components/NoData';
+import React from "react";
+import { FlatList } from "react-native";
+import { Post } from "../components/Post";
+import { NoData } from "../components/NoData";
+import postContainer from "../containers/post.container";
+import { Subscribe } from "unstated";
 
 export default class PostsScreen extends React.Component {
+	constructor(props) {
+		super(props);
 
-    constructor(props) {
-        super(props);
+		this.state = {
+			skip: 0,
+			limit: 5
+		};
+	}
 
-        this.state = {
-            posts: [
-                {
-                    title: "notice title",
-                    img: IMGS.NOTE_DEFAULT,
-                    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-                    likes: 100,
-                    onLike: () => console.log(),
-                    onShare: () => console.log()
-                }
-            ],
-            refreshing: false,
-            total: 0,
-            skip: 0,
-            limit: 5
-        };
-    }
+	async componentDidMount() {
+		await postContainer.getTotalPosts();
+		this.getPosts({
+			skip: 0,
+			limit: this.state.limit
+		});
+	}
 
-    _onRefresh() {
-        console.log("refresh...")
-    }
+	async getPosts(args) {
+		await postContainer.getPosts({
+			skip: args.skip,
+			limit: args.limit,
+			accumulate: args.accumulate != undefined ? args.accumulate : true
+		});
+	}
 
-    _morePosts() {
-        console.log("more posts...");
-    }
+	_onRefresh() {
+		this.getPosts({
+			skip: 0,
+			limit: this.state.limit,
+			accumulate: false
+		});
+	}
 
-    _keyExtractor = (index) => index.toString();
+	_morePosts() {
+		let { skip, limit } = this.state;
 
-    _renderItem(post, index) {
-        return (
-            <Post
-                data={post}
-                index={index}
-                onPress={() => this.props.navigation.navigate("Detail", { post: post })}
-                onLike={post.onLike}
-                onShare={post.onShare}
-            />
-        )
-    }
+		skip += limit;
 
-    render() {
-        const { posts, refreshing } = this.state;
-        if (!posts || !posts.length) return <NoData />
-        return (
-            <FlatList
-                data={posts}
-                onRefresh={() => this._onRefresh()}
-                keyExtractor={this._keyExtractor}
-                refreshing={refreshing}
-                renderItem={({ item, index }) => this._renderItem(item, index)}
-                onEndReached={() => this._morePosts()}
-                onEndReachedThreshold={0.7}
-            />
-        )
-    }
+		if (skip < postContainer.state.total) {
+			this.getPosts({
+				skip: skip,
+				limit: limit
+			});
+		}
+	}
+
+	_keyExtractor = (index) => index.toString();
+
+	_renderItem(post, index) {
+		return (
+			<Post
+				data={post}
+				index={index}
+				onPress={() => this.props.navigation.navigate("Detail", { post: post })}
+				onLike={this.onLike}
+				onShare={this.onShare}
+			/>
+		);
+	}
+
+	renderView() {
+		const { posts, refreshing } = postContainer.state;
+		if (!posts || !posts.length) return <NoData />;
+		return (
+			<FlatList
+				data={posts}
+				onRefresh={() => this._onRefresh()}
+				keyExtractor={this._keyExtractor}
+				refreshing={refreshing}
+				renderItem={({ item, index }) => this._renderItem(item, index)}
+				onEndReached={() => this._morePosts()}
+				onEndReachedThreshold={0.7}
+			/>
+		);
+	}
+
+	render = () => <Subscribe to={[postContainer]}>{() => this.renderView()}</Subscribe>;
 }

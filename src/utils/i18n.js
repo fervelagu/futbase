@@ -28,7 +28,6 @@ const getLocale = () => {
 };
 
 moment.locale(getLocale());
-console.warn("LANG", i18n.locale, getLocale());
 i18n.fallbacks = true;
 i18n.translations = { es, en };
 i18n.defaultLocale = "en";

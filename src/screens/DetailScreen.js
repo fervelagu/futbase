@@ -14,12 +14,12 @@ export default class DetailScreen extends React.Component {
     }
 
     render() {
-        const { img, title, description } = this.state.post;
+        const { asset, title, desc } = this.state.post;
         return (
             <View style={styles.container}>
                 <ImageBackground
                     resizeMode="cover"
-                    source={{ uri: img }}
+                    source={{ uri: asset }}
                     style={styles.bg}>
                     <BackButton notWrapped />
                 </ImageBackground>
@@ -29,7 +29,7 @@ export default class DetailScreen extends React.Component {
                             {title}
                         </Text>
                         <Text style={styles.descriptionLabel}>
-                            {description}
+                            {desc}
                         </Text>
                     </View>
                 </ScrollView>

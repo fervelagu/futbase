@@ -3,7 +3,7 @@ import { TouchableHighlight, View, ImageBackground, StyleSheet, Text, Image } fr
 import { COLORS, IMGS } from "../styles";
 
 export const Post = ({ data, index, onPress, onLike, onShare }) => {
-    const { title, img, likes } = data;
+    const { title, asset, likes } = data;
     return (
         <TouchableHighlight
             key={index}
@@ -12,7 +12,7 @@ export const Post = ({ data, index, onPress, onLike, onShare }) => {
             style={styles.container}>
             <ImageBackground
                 resizeMode="cover"
-                source={{ uri: img }}
+                source={{ uri: asset }}
                 style={styles.bg}>
                 <View style={styles.desc}>
                     <View style={styles.titleContainer}>
