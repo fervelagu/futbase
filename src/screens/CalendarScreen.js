@@ -67,7 +67,7 @@ export default class CalendarScreen extends React.Component {
                 removeClippedSubviews={false}
                 current={moment().format('YYYY-MM-DD')}
                 minDate={moment().startOf('year').format('YYYY-MM-DD')}
-                pastScrollRange={2}
+                pastScrollRange={0}
                 futureScrollRange={7}
                 scrollEnabled={true}
                 showScrollIndicator={true}
