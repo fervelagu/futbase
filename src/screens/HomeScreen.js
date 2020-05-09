@@ -12,28 +12,30 @@ export default class HomeScreen extends React.Component {
 		await homeContainer.getCurrentMatch();
 	}
 
-	render() {
-		const { headerMatch } = homeContainer.state;
+	onRender(hc) {
+		const { headerMatch } = hc.state;
 		return (
-			<Subscribe to={[homeContainer]}>
-				{() => (
-					<Wrapper>
-						<TouchableHighlight
-							underlayColor="transparent"
-							style={styles.header}
-							onPress={() => this.props.navigation.navigate("Matches")}>
-							{headerMatch ? (
-								<HeaderMatch match={headerMatch} />
-							) : (
-								<Loading transparent />
-							)}
-						</TouchableHighlight>
-						<TabsNavigator />
-					</Wrapper>
-				)}
-			</Subscribe>
+			<Wrapper>
+				<TouchableHighlight
+					underlayColor="transparent"
+					style={styles.header}
+					onPress={() => this.props.navigation.navigate("Matches")}>
+					{headerMatch ? (
+						<HeaderMatch match={headerMatch} />
+					) : (
+						<Loading transparent />
+					)}
+				</TouchableHighlight>
+				<TabsNavigator />
+			</Wrapper>
 		);
 	}
+
+	render = () => (
+		<Subscribe to={[homeContainer]}>
+			{() => this.onRender(homeContainer)}
+		</Subscribe>
+	);
 }
 
 const styles = StyleSheet.create({
