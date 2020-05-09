@@ -1,24 +1,25 @@
 {
-  "Global": {
-    "matches": "Matches",
-    "fan": "Fan",
-    "rewards": "Rewards",
-    "team": "Team",
-    "posts": "Posts",
-    "videos": "Videos",
-    "statistic": "Statistics",
-    "calendar": "Calendar",
-    "noData": "No info to show."
-  },
-  "Fan": {
-    "ld": "Leaderboard",
-    "profile": "Profile",
-    "points": "points",
-    "checkin": "CHECK-IN",
-    "checkinMsg": "Check-in and win points!",
-    "qr": "QR",
-    "qrMsg": "Scan and win points!",
-    "survey": "SURVEYS",
-    "surveyMsg": "Answer and win points!"
-  }
+	"Global": {
+		"matches": "Matches",
+		"fan": "Fan",
+		"rewards": "Rewards",
+		"team": "Team",
+		"posts": "Posts",
+		"videos": "Videos",
+		"statistic": "Statistics",
+		"calendar": "Calendar",
+		"noData": "No info to show.",
+		"loading": "Loading ..."
+	},
+	"Fan": {
+		"ld": "Leaderboard",
+		"profile": "Profile",
+		"points": "points",
+		"checkin": "CHECK-IN",
+		"checkinMsg": "Check-in and win points!",
+		"qr": "QR",
+		"qrMsg": "Scan and win points!",
+		"survey": "SURVEYS",
+		"surveyMsg": "Answer and win points!"
+	}
 }

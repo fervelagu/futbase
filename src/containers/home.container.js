@@ -11,15 +11,15 @@ class HomeContainer extends Container {
 
 	async getCurrentMatch() {
 		await this.setState({ loading: true });
-		const res = await Http.get(`${ENV.API_URL}team/${ENV.TEAM_ID}/match/current`);
+		const res = await Http.get(
+			`${ENV.API_URL}team/${ENV.TEAM_ID}/match/current`
+		);
 
 		if (res.success) {
 			await this.setState({
 				loading: false,
 				headerMatch: res.data
 			});
-
-			console.log("current Match", this.state.headerMatch);
 		} else await this.setState({ loading: false, error: true });
 	}
 }
