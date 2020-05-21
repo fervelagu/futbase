@@ -5,7 +5,6 @@ import { getTeamLogo } from "../styles/images";
 
 export const HeaderMatch = ({ match }) => {
 	const { tournament, place, local_team, visitor_team, score, date } = match;
-
 	return (
 		<View style={styles.container}>
 			<View style={styles.center}>

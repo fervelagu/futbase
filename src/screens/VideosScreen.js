@@ -26,7 +26,6 @@ export default class VideosScreen extends React.Component {
     }
 
     _moreVideos() {
-        console.log("more videos...");
     }
 
     _keyExtractor = (index) => index.toString();

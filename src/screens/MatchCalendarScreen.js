@@ -1,24 +1,21 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
+import { Subscribe } from 'unstated';
 import { BackButton } from '../components/BackButton';
 import { Wrapper } from '../components/Wrapper';
 import { Loading } from '../components/Loading';
 import { HeaderMatch } from '../components/HeaderMatch';
-import { matches } from '../constants/matches';
+import matchContainer from '../containers/matches.container';
 
 export default class MatchCalendarScreen extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {}
-    }
-    componentDidMount() {
+
+    async componentDidMount() {
         const { matchId } = this.props.route.params;
-        const [match] = matches.filter(match => match.id == matchId)
-        this.setState({ calendarMatch: match })
+        await matchContainer.getMatch(matchId);
     }
 
-    render() {
-        const { calendarMatch } = this.state;
+    renderView(mc) {
+        const { calendarMatch } = mc.state;
         if (!calendarMatch) return <Loading />
         return (
             <Wrapper style={styles.container}>
@@ -27,6 +24,12 @@ export default class MatchCalendarScreen extends React.Component {
             </Wrapper>
         )
     }
+
+    render = () => (
+        <Subscribe to={[matchContainer]}>
+            {() => this.renderView(matchContainer)}
+        </Subscribe>
+    )
 }
 
 const styles = StyleSheet.create({

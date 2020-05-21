@@ -20,6 +20,18 @@ class MatchesContainer extends Container {
 			});
 		} else await this.setState({ loading: false, error: true });
 	}
+
+	async getMatch(id) {
+		await this.setState({ loading: true });
+		const res = await Http.get(`${ENV.API_URL}team/${ENV.TEAM_ID}/match/${id}`);
+
+		if (res.success) {
+			await this.setState({
+				loading: false,
+				calendarMatch: res.data
+			});
+		} else await this.setState({ loading: false, error: true });
+	}
 }
 
 const matchContainer = new MatchesContainer();

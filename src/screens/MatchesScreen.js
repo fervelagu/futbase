@@ -1,11 +1,11 @@
 import React from "react";
-import { StyleSheet, Dimensions, View, TouchableOpacity } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
+import { Subscribe } from "unstated";
+import Carousel from "react-native-snap-carousel";
 import { Wrapper } from "../components/Wrapper";
 import { HeaderMatch } from "../components/HeaderMatch";
 import { Loading } from "../components/Loading";
-import { Subscribe } from "unstated";
 import matchContainer from "../containers/matches.container";
-import Carousel from "react-native-snap-carousel";
 
 export default class MatchesScreen extends React.Component {
 	async componentDidMount() {
@@ -16,35 +16,35 @@ export default class MatchesScreen extends React.Component {
 		console.log("onChangeMatch");
 	}
 
-	_renderItem(item, index) {
-		<HeaderMatch match={item} />;
+	_renderItem = ({ item, index }) => <HeaderMatch match={item} />
+
+	renderPoll() {
+
 	}
 
-	onRender(mc) {
+	renderView(mc) {
 		const { matches } = mc.state;
-		console.log(matches);
 		return (
 			<Wrapper>
-				{matches && matches.length ? (
+				{!!matches.length ? (
 					<Carousel
 						data={matches}
 						renderItem={this._renderItem}
-						// firstItem={matches[0]}
 						itemWidth={Dimensions.get("screen").width}
 						sliderWidth={Dimensions.get("screen").width}
 						onSnapToItem={this.onChangeMatch}
 						ref={(c) => (this._carousel = c)}
 					/>
 				) : (
-					<Loading />
-				)}
+						<Loading />
+					)}
 			</Wrapper>
 		);
 	}
 
 	render = () => (
 		<Subscribe to={[matchContainer]}>
-			{(matchContainer) => this.onRender(matchContainer)}
+			{() => this.renderView(matchContainer)}
 		</Subscribe>
 	);
 }

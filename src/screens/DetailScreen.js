@@ -49,7 +49,8 @@ const styles = StyleSheet.create({
         height: "100%"
     },
     subContainer: {
-        padding: 15,
+        paddingHorizontal: 15,
+        paddingBottom: 45,
         justifyContent: "flex-start"
     },
     titleLabel: {
