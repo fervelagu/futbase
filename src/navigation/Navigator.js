@@ -37,14 +37,14 @@ const BottomTabs = () => {
 				name={i18n.t("Global.matches")}
 				component={MatchesScreen}
 				options={{
-					tabBarIcon: ({ focused }) => <TabBarIcon name="md-person" focused={focused} />
+					tabBarIcon: ({ focused }) => <TabBarIcon name="md-football" focused={focused} />
 				}}
 			/>
 			<BottomStack.Screen
 				name={i18n.t("Global.fan")}
 				component={FanNavigator}
 				options={{
-					tabBarIcon: ({ focused }) => <TabBarIcon name="md-football" focused={focused} />
+					tabBarIcon: ({ focused }) => <TabBarIcon name="md-person" focused={focused} />
 				}}
 			/>
 			<BottomStack.Screen
@@ -72,18 +72,6 @@ const BottomTabs = () => {
 	);
 };
 
-// const AuthStack = createStackNavigator();
-// const AuthStackNav = () => {
-// 	return (
-// 		<AuthStack.Navigator initialRouteName="lobby" headerMode="none">
-// 			<AuthStack.Screen name="lobby" component={} />
-// 			<AuthStack.Screen name="register" component={} />
-// 			<AuthStack.Screen name="login" component={} />
-// 			<AuthStack.Screen name="resetPassword" component={} />
-// 		</AuthStack.Navigator>
-// 	);
-// };
-
 const Home = createStackNavigator();
 const HomeNav = () => {
 	return (
@@ -102,14 +90,5 @@ const AppNavigator = () => (
 		<App.Screen name="MatchCalendar" component={MatchCalendarScreen} />
 	</App.Navigator>
 );
-
-// const HomeStack = createStackNavigator();
-// const HomeNavigator = () => (
-// 	<HomeStack.Navigator initialRouteName="Home" headerMode="none">
-// 		<HomeStack.Screen name="Home" component={HomeScreen} />
-// 		<HomeStack.Screen name="Detail" component={DetailScreen} />
-// 		<HomeStack.Screen name="MatchCalendar" component={MatchCalendarScreen} />
-// 	</HomeStack.Navigator>
-// );
 
 export default AppNavigator;
