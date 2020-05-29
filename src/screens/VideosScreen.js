@@ -1,7 +1,8 @@
 import React from 'react';
 import { FlatList } from 'react-native';
+import { Subscribe } from 'unstated';
 import { Video } from '../components/Video';
-import { DEFAULT_VIDEO } from "../constants/TeamConfig"
+import videosContainer from '../containers/video.container';
 
 export default class VideosScreen extends React.Component {
 
@@ -9,23 +10,44 @@ export default class VideosScreen extends React.Component {
         super(props);
 
         this.state = {
-            videos: [
-                {
-                    url: DEFAULT_VIDEO,
-                }
-            ],
-            refreshing: false,
-            total: 0,
             skip: 0,
             limit: 5
         };
     }
 
+    async componentDidMount() {
+        await videosContainer.getTotalVideos();
+        this.getVideos({
+            skip: 0,
+            limit: this.state.limit
+        });
+    }
+
+    async getVideos(args) {
+        await videosContainer.getVideos({
+            skip: args.skip,
+            limit: args.limit,
+            accumulate: args.accumulate != undefined ? args.accumulate : true
+        });
+    }
+
     _onRefresh() {
-        console.log("refresh...")
+        this.getVideos({
+            skip: 0,
+            limit: this.state.limit,
+            accumulate: false
+        });
     }
 
     _moreVideos() {
+        let { skip, limit } = this.state;
+        skip += limit;
+        if (skip < postContainer.state.total) {
+            this.getVideos({
+                skip: skip,
+                limit: limit
+            });
+        }
     }
 
     _keyExtractor = (index) => index.toString();
@@ -36,17 +58,24 @@ export default class VideosScreen extends React.Component {
         )
     }
 
-    render() {
+    renderView(container) {
+        const { videos, refreshing } = container.state;
         return (
             <FlatList
-                data={this.state.videos}
+                data={videos}
                 onRefresh={() => this._onRefresh()}
                 keyExtractor={this._keyExtractor}
-                refreshing={this.state.refreshing}
+                refreshing={refreshing}
                 renderItem={({ item, index }) => this._renderItem(item, index)}
                 onEndReached={() => this._moreVideos()}
                 onEndReachedThreshold={0.7}
             />
         )
     }
+
+    render = () => (
+        <Subscribe to={[videosContainer]}>
+            {() => this.renderView(videosContainer)}
+        </Subscribe>
+    )
 }
