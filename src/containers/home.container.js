@@ -25,7 +25,7 @@ class HomeContainer extends Container {
 		} else await this.setState({ loading: false, error: true });
 	}
 
-	async getAllMatches() {
+	async getCalendarMatches() {
 		await this.setState({ loading: true });
 		const res = await Http.get(
 			`${ENV.API_URL}team/${ENV.TEAM_ID}/match/`

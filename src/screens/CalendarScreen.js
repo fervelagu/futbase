@@ -22,7 +22,7 @@ export default class CalendarScreen extends React.Component {
     }
 
     async componentDidMount() {
-        homeContainer.getAllMatches();
+        homeContainer.getCalendarMatches();
         const { matches } = homeContainer.state;
 
         let _dates = {}
