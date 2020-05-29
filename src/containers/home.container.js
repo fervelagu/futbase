@@ -6,7 +6,9 @@ class HomeContainer extends Container {
 	state = {
 		loading: false,
 		error: false,
-		headerMatch: null
+		headerMatch: null,
+		matches: null,
+		dates: []
 	};
 
 	async getCurrentMatch() {
@@ -19,6 +21,20 @@ class HomeContainer extends Container {
 			await this.setState({
 				loading: false,
 				headerMatch: res.data
+			});
+		} else await this.setState({ loading: false, error: true });
+	}
+
+	async getAllMatches() {
+		await this.setState({ loading: true });
+		const res = await Http.get(
+			`${ENV.API_URL}team/${ENV.TEAM_ID}/match/`
+		);
+
+		if (res.success) {
+			await this.setState({
+				loading: false,
+				matches: res.data
 			});
 		} else await this.setState({ loading: false, error: true });
 	}
