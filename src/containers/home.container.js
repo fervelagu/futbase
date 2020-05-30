@@ -17,7 +17,11 @@ class HomeContainer extends Container {
 			`${ENV.API_URL}team/${ENV.TEAM_ID}/match/current`
 		);
 
+		console.log(`${ENV.API_URL}team/${ENV.TEAM_ID}/match/current`)
 		if (res.success) {
+			if (!res.data) {
+				await this.setState({ noHeaderMatch: true, loading: false });
+			}
 			await this.setState({
 				loading: false,
 				headerMatch: res.data

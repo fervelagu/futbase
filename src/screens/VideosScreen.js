@@ -42,7 +42,7 @@ export default class VideosScreen extends React.Component {
     _moreVideos() {
         let { skip, limit } = this.state;
         skip += limit;
-        if (skip < postContainer.state.total) {
+        if (skip < videosContainer.state.total) {
             this.getVideos({
                 skip: skip,
                 limit: limit

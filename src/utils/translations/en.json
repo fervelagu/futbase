@@ -9,7 +9,8 @@
 		"statistic": "Statistics",
 		"calendar": "Calendar",
 		"noData": "No info to show.",
-		"loading": "Loading ..."
+		"loading": "Loading ...",
+		"noCurrentMatch": "No hay próximo partido.."
 	},
 	"Fan": {
 		"ld": "Leaderboard",

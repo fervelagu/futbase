@@ -15,7 +15,7 @@ export const NoData = ({ message = i18n.t("Global.noData") }) => (
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: COLORS.TEAM_PRIMARY
+        justifyContent: "center"
     },
     icon: {
         backgroundColor: COLORS.WHITE,

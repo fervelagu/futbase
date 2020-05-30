@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, TouchableHighlight } from "react-native";
+import { StyleSheet, TouchableHighlight, View } from "react-native";
 import { heightPercentageToDP } from "react-native-responsive-screen";
 import { Subscribe } from "unstated";
 import { Wrapper } from "../components/Wrapper";
@@ -7,6 +7,8 @@ import { HeaderMatch } from "../components/HeaderMatch";
 import TabsNavigator from "../navigation/HomeTabsNavigator";
 import homeContainer from "../containers/home.container";
 import { Loading } from "../components/Loading";
+import { NoData } from "../components/NoData";
+import { i18n } from "../utils/i18n";
 
 export default class HomeScreen extends React.Component {
 	async componentDidMount() {
@@ -14,18 +16,18 @@ export default class HomeScreen extends React.Component {
 	}
 
 	renderView(hc) {
-		const { headerMatch } = hc.state;
+		const { headerMatch, noHeaderMatch, loading, error } = hc.state;
 		return (
 			<Wrapper>
 				<TouchableHighlight
 					underlayColor="transparent"
 					style={styles.header}
 					onPress={() => this.props.navigation.navigate("Matches")}>
-					{headerMatch ?
-						<HeaderMatch match={headerMatch} />
-						:
-						<Loading transparent />
-					}
+					<View>
+						{loading && <Loading transparent />}
+						{headerMatch && !noHeaderMatch && <HeaderMatch match={headerMatch} />}
+						{!headerMatch && noHeaderMatch || error && <NoData message={i18n.t("Global.noCurrentMatch")} />}
+					</View>
 				</TouchableHighlight>
 				<TabsNavigator />
 			</Wrapper>
