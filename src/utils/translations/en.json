@@ -22,5 +22,19 @@
 		"qrMsg": "Scan and win points!",
 		"survey": "SURVEYS",
 		"surveyMsg": "Answer and win points!"
+	},
+	"Team": {
+		"exclusive": "EXCLUSIVE",
+		"history": "Team History",
+		"wallpapers": "Wallpapers",
+		"wallpapersMsg": "Download our wallpapers",
+		"players": "Players",
+		"playersMsg": "Get to know our team",
+		"stadium": "Stadium",
+		"stadiumMsg": "Get to know it",
+		"anthem": "Anthem",
+		"anthemMsg": "Learn our anthem",
+		"contact": "Contact us",
+		"contactMsg": "We will help you to solve it"
 	}
 }
