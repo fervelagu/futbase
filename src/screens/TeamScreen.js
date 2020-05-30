@@ -16,7 +16,7 @@ export default class FanScreen extends React.Component {
                     <TouchableHighlight
                         style={styles.historyButton}
                         underlayColor={"transparent"}
-                        onPress={() => this.props.navigation.navigate('Team')}>
+                        onPress={() => this.props.navigation.navigate('History')}>
                         <View style={styles.iconView}>
                             <Text style={styles.headerTeamTitleButton}>
                                 {i18n.t("Team.history")}
@@ -27,14 +27,16 @@ export default class FanScreen extends React.Component {
                 </View>
                 <ScrollView style={styles.container}>
                     <View style={styles.row}>
-                        <TouchableHighlight style={styles.rowItem} underlayColor={"transparent"}>
+                        <TouchableHighlight style={styles.rowItem} underlayColor={"transparent"}
+                            onPress={() => this.props.navigation.navigate('Wallpapers')}>
                             <View style={styles.rowView}>
                                 <MaterialIcon name={"image-area"} style={styles.icon} />
                                 <Text style={styles.itemTitle}>{i18n.t("Team.wallpapers")}</Text>
                                 <Text style={styles.itemDesc}>{i18n.t("Team.wallpapersMsg")}</Text>
                             </View>
                         </TouchableHighlight>
-                        <TouchableHighlight style={styles.rowItem} underlayColor={"transparent"}>
+                        <TouchableHighlight style={styles.rowItem} underlayColor={"transparent"}
+                            onPress={() => this.props.navigation.navigate('Players')}>
                             <View style={styles.rowView}>
                                 <MaterialIcon name={"soccer"} style={styles.icon} />
                                 <Text style={styles.itemTitle}>{i18n.t("Team.players")}</Text>
@@ -43,14 +45,16 @@ export default class FanScreen extends React.Component {
                         </TouchableHighlight>
                     </View>
                     <View style={styles.row}>
-                        <TouchableHighlight style={styles.rowItem} underlayColor={"transparent"}>
+                        <TouchableHighlight style={styles.rowItem} underlayColor={"transparent"}
+                            onPress={() => this.props.navigation.navigate('Stadium')}>
                             <View style={styles.rowView}>
                                 <MaterialIcon name={"soccer-field"} style={styles.icon} />
                                 <Text style={styles.itemTitle}>{i18n.t("Team.stadium")}</Text>
                                 <Text style={styles.itemDesc}>{i18n.t("Team.stadiumMsg")}</Text>
                             </View>
                         </TouchableHighlight>
-                        <TouchableHighlight style={styles.rowItem} underlayColor={"transparent"}>
+                        <TouchableHighlight style={styles.rowItem} underlayColor={"transparent"}
+                            onPress={() => this.props.navigation.navigate('Anthem')}>
                             <View style={styles.rowView}>
                                 <MaterialIcon name={"playlist-music"} style={styles.icon} />
                                 <Text style={styles.itemTitle}>{i18n.t("Team.anthem")}</Text>
@@ -59,7 +63,8 @@ export default class FanScreen extends React.Component {
                         </TouchableHighlight>
                     </View>
                     <View style={styles.row}>
-                        <TouchableHighlight style={styles.rowItem} underlayColor={"transparent"}>
+                        <TouchableHighlight style={styles.rowItem} underlayColor={"transparent"}
+                            onPress={() => this.props.navigation.navigate('ContactUs')}>
                             <View style={styles.rowView}>
                                 <MaterialIcon name={"email-outline"} style={styles.icon} />
                                 <Text style={styles.itemTitle}>{i18n.t("Team.contact")}</Text>

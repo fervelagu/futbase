@@ -6,7 +6,7 @@ import { COLORS } from "../styles";
 import MatchesScreen from "../screens/MatchesScreen";
 import FanNavigator from "./FanNavigator";
 import RewardsScreen from "../screens/RewardsScreen";
-import TeamScreen from "../screens/TeamScreen";
+import TeamNavigator from "../navigation/TeamNavigator";
 import HomeScreen from "../screens/HomeScreen";
 import DetailScreen from "../screens/DetailScreen";
 import MatchCalendarScreen from "../screens/MatchCalendarScreen";
@@ -63,7 +63,7 @@ const BottomTabs = () => {
 			/>
 			<BottomStack.Screen
 				name={i18n.t("Global.team")}
-				component={TeamScreen}
+				component={TeamNavigator}
 				options={{
 					tabBarIcon: ({ focused }) => <TabBarIcon name="md-flag" focused={focused} />
 				}}
