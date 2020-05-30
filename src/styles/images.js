@@ -1,9 +1,11 @@
 export const SPLASH = require("../../assets/splash.png");
 export const BALL_ICON = require("../../assets/icon.png");
 export const NOTE_DEFAULT = "https://lospleyers.com/wp-content/uploads/2019/01/pumas-playera-clausura-2019-unam-nike-dri-fit-mexico-portada-ok.png";
-export const LIKE = require("../../assets/imgs/icn_like.png");
-export const LIKE_ON = require("../../assets/imgs/icn_like-on.png");
-export const SHARE = require("../../assets/imgs/icn_share.png");
+export const AVATAR_DEFAULT = require("../assets/imgs/avatar_empty.png");
+export const LIKE = require("../assets/imgs/icn_like.png");
+export const LIKE_ON = require("../assets/imgs/icn_like-on.png");
+export const SHARE = require("../assets/imgs/icn_share.png");
+export const STADIUM = require("../assets/imgs/stadium.jpeg");
 
 export const getTeamLogo = (logo, inactive = false) => {
 	switch (logo) {
