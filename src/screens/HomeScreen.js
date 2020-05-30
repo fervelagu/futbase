@@ -17,6 +17,9 @@ export default class HomeScreen extends React.Component {
 
 	renderView(hc) {
 		const { headerMatch, noHeaderMatch, loading, error } = hc.state;
+		const showNoData = ((!loading && !headerMatch) && noHeaderMatch) || error;
+		const showMatch = (!loading && !noHeaderMatch) && headerMatch;
+
 		return (
 			<Wrapper>
 				<TouchableHighlight
@@ -25,8 +28,8 @@ export default class HomeScreen extends React.Component {
 					onPress={() => this.props.navigation.navigate("Matches")}>
 					<View>
 						{loading && <Loading transparent />}
-						{headerMatch && !noHeaderMatch && <HeaderMatch match={headerMatch} />}
-						{!headerMatch && noHeaderMatch || error && <NoData message={i18n.t("Global.noCurrentMatch")} />}
+						{showMatch && <HeaderMatch match={headerMatch} />}
+						{showNoData && <NoData message={i18n.t("Global.noCurrentMatch")} />}
 					</View>
 				</TouchableHighlight>
 				<TabsNavigator />

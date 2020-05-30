@@ -17,16 +17,26 @@ class HomeContainer extends Container {
 			`${ENV.API_URL}team/${ENV.TEAM_ID}/match/current`
 		);
 
-		console.log(`${ENV.API_URL}team/${ENV.TEAM_ID}/match/current`)
+		console.log("current match RESPONSE", res)
+
+
 		if (res.success) {
 			if (!res.data) {
-				await this.setState({ noHeaderMatch: true, loading: false });
+				await this.setState({
+					loading: false,
+					headerMatch: null,
+					noHeaderMatch: true,
+				});
+			} else {
+				await this.setState({
+					loading: false,
+					noHeaderMatch: false,
+					headerMatch: res.data
+				});
 			}
-			await this.setState({
-				loading: false,
-				headerMatch: res.data
-			});
+			console.log("current match STATE", this.state)
 		} else await this.setState({ loading: false, error: true });
+
 	}
 
 	async getCalendarMatches() {
