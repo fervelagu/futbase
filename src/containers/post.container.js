@@ -21,8 +21,6 @@ class PostsContainer extends Container {
 				loading: false,
 				total: res.data.total
 			});
-
-			console.log("total", this.state.total);
 		} else await this.setState({ loading: false, error: true });
 	}
 
@@ -35,8 +33,6 @@ class PostsContainer extends Container {
 				loading: false,
 				posts: res.data
 			});
-
-			console.log("posts", this.state.posts);
 		} else await this.setState({ loading: false, error: true });
 	}
 }

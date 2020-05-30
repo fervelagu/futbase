@@ -17,9 +17,6 @@ class HomeContainer extends Container {
 			`${ENV.API_URL}team/${ENV.TEAM_ID}/match/current`
 		);
 
-		console.log("current match RESPONSE", res)
-
-
 		if (res.success) {
 			if (!res.data) {
 				await this.setState({
@@ -34,7 +31,6 @@ class HomeContainer extends Container {
 					headerMatch: res.data
 				});
 			}
-			console.log("current match STATE", this.state)
 		} else await this.setState({ loading: false, error: true });
 
 	}

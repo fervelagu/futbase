@@ -33,8 +33,6 @@ class VideosContainer extends Container {
 				loading: false,
 				videos: res.data
 			});
-
-			console.log("videos", this.state.videos);
 		} else await this.setState({ loading: false, error: true });
 	}
 }
