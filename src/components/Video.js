@@ -1,5 +1,5 @@
 import React from "react";
-import { TouchableHighlight, View, StyleSheet, Text } from "react-native";
+import { View, StyleSheet, Text } from "react-native";
 import { WebView } from "react-native-webview";
 import { COLORS } from "../styles";
 
