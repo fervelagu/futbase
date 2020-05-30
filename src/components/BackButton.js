@@ -1,11 +1,11 @@
 import React from "react";
-import { TouchableHighlight, Image, View, Text, StyleSheet } from "react-native";
+import { TouchableHighlight, Text, StyleSheet } from "react-native";
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from "@react-navigation/native";
 import { COLORS } from "../styles";
 import { Icon } from "native-base";
 
-export const BackButton = ({ title, icon, notWrapped }) => {
+export const BackButton = ({ title, notWrapped }) => {
     const navigation = useNavigation();
     return (
         <SafeAreaView style={styles.container}>
@@ -15,25 +15,16 @@ export const BackButton = ({ title, icon, notWrapped }) => {
                 underlayColor={"transparent"}>
                 <Icon name="md-arrow-back" style={styles.img} />
             </TouchableHighlight>
-            <View style={styles.titleContainer}>
-                {icon && (
-                    <View>
-                        <Image source={icon} style={styles.icon} />
-                    </View>
-                )}
-                {title && (
-                    <View>
-                        <Text style={styles.titleLabel}>{title}</Text>
-                    </View>
-                )}
-            </View>
+            {title && <Text style={styles.titleLabel}>{title}</Text>}
         </SafeAreaView>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
-        paddingLeft: 15
+        paddingLeft: 15,
+        flexDirection: "row",
+        alignItems: "center"
     },
     touch: {
         padding: 6,
@@ -47,17 +38,9 @@ const styles = StyleSheet.create({
         alignSelf: "center",
         color: COLORS.WHITE
     },
-    titleContainer: {
-        flexDirection: "row"
-    },
-    icon: {
-        margin: 4,
-        height: 30,
-        width: 30
-    },
     titleLabel: {
         color: COLORS.WHITE,
         fontSize: 24,
-        paddingVertical: 8
+        paddingHorizontal: 12
     }
 })
