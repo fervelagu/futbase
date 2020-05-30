@@ -50,7 +50,8 @@ const Tab = ({ state, descriptors, navigation }) => (
 
 const Tabs = createMaterialTopTabNavigator();
 TabsNavigator = () => (
-    <Tabs.Navigator tabBar={props => <Tab {...props} />}>
+    <Tabs.Navigator sceneContainerStyle={styles.bg}
+        tabBar={props => <Tab {...props} />}>
         <Tabs.Screen name={i18n.t("Global.posts")} component={PostsScreen} />
         <Tabs.Screen name={i18n.t("Global.videos")} component={VideosScreen} />
         <Tabs.Screen name={i18n.t("Global.statistic")} component={StatisticsScreen} />
@@ -61,6 +62,9 @@ TabsNavigator = () => (
 export default TabsNavigator;
 
 const styles = StyleSheet.create({
+    bg: {
+        backgroundColor: "transparent"
+    },
     tabStyle: {
         backgroundColor: COLORS.TEAM_PRIMARY,
         flexDirection: 'row',
