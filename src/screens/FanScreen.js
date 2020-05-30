@@ -92,7 +92,8 @@ export default class FanScreen extends React.Component {
 const styles = StyleSheet.create({
     header: {
         flexDirection: "row",
-        alignItems: "center"
+        alignItems: "center",
+        height: 200
     },
     headerOption: {
         alignItems: "center",
