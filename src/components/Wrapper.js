@@ -12,7 +12,7 @@ export const Wrapper = ({ children, asset, container }) => {
                     {children}
                 </ImageBackground>
                 :
-                <Container style={[styles.bg, styles.color]}>
+                <Container style={styles.bg}>
                     {children}
                 </Container>
             }
@@ -30,9 +30,7 @@ const styles = StyleSheet.create({
     },
     bg: {
         width: "100%",
-        height: "100%"
-    },
-    color: {
+        height: "100%",
         backgroundColor: COLORS.TEAM_PRIMARY
     }
 });
