@@ -25,7 +25,7 @@ export default class MatchesScreen extends React.Component {
 	renderView(mc) {
 		const { matches } = mc.state;
 		return (
-			<Wrapper>
+			<Wrapper container>
 				{!!matches && !!matches.length ? (
 					<Carousel
 						data={matches}

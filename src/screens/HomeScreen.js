@@ -21,7 +21,7 @@ export default class HomeScreen extends React.Component {
 		const showMatch = (!loading && !noHeaderMatch) && headerMatch;
 
 		return (
-			<Wrapper>
+			<Wrapper container>
 				<TouchableHighlight
 					underlayColor="transparent"
 					style={styles.header}

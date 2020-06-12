@@ -8,7 +8,7 @@ import { i18n } from '../utils/i18n';
 export default class FanScreen extends React.Component {
     render() {
         return (
-            <Wrapper color>
+            <Wrapper container>
                 <View style={styles.header}>
                     <Text style={styles.title}>
                         {i18n.t("Team.exclusive")}
@@ -82,8 +82,7 @@ const styles = StyleSheet.create({
     header: {
         alignItems: "center",
         justifyContent: "center",
-        height: 200,
-        marginTop: 20
+        height: 200
     },
     title: {
         color: COLORS.WHITE,

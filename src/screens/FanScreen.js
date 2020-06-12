@@ -9,7 +9,7 @@ import { i18n } from '../utils/i18n';
 export default class FanScreen extends React.Component {
     render() {
         return (
-            <Wrapper color>
+            <Wrapper container>
                 <View style={styles.header}>
                     <View style={styles.headerOption}>
                         <TouchableHighlight
