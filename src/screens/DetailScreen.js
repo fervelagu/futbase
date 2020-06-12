@@ -2,6 +2,7 @@ import React from 'react';
 import { ImageBackground, StyleSheet, View, ScrollView, Text } from 'react-native';
 import { COLORS } from '../styles';
 import { BackButton } from '../components/BackButton';
+import { Wrapper } from '../components/Wrapper';
 
 export default class DetailScreen extends React.Component {
 
@@ -17,12 +18,9 @@ export default class DetailScreen extends React.Component {
         const { asset, title, desc } = this.state.post;
         return (
             <View style={styles.container}>
-                <ImageBackground
-                    resizeMode="cover"
-                    source={{ uri: asset }}
-                    style={styles.bg}>
-                    <BackButton notWrapped />
-                </ImageBackground>
+                <Wrapper asset={asset}>
+                    <BackButton dark />
+                </Wrapper>
                 <ScrollView>
                     <View style={styles.subContainer}>
                         <Text style={styles.titleLabel}>

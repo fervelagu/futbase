@@ -82,7 +82,8 @@ const styles = StyleSheet.create({
     header: {
         alignItems: "center",
         justifyContent: "center",
-        height: 200
+        height: 200,
+        marginTop: 20
     },
     title: {
         color: COLORS.WHITE,

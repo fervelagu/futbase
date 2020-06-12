@@ -5,12 +5,12 @@ import { useNavigation } from "@react-navigation/native";
 import { COLORS } from "../styles";
 import { Icon } from "native-base";
 
-export const BackButton = ({ title, notWrapped }) => {
+export const BackButton = ({ title, dark }) => {
     const navigation = useNavigation();
     return (
-        <SafeAreaView style={styles.container}>
+        <SafeAreaView paddingLeft={15} paddingBottom={12} style={styles.container}>
             <TouchableHighlight
-                style={[styles.touch, notWrapped && { marginTop: 20 }]}
+                style={[styles.touch, dark && styles.dark]}
                 onPress={() => navigation.goBack()}
                 underlayColor={"transparent"}>
                 <Icon name="md-arrow-back" style={styles.img} />
@@ -22,14 +22,15 @@ export const BackButton = ({ title, notWrapped }) => {
 
 const styles = StyleSheet.create({
     container: {
-        paddingLeft: 15,
         flexDirection: "row",
         alignItems: "center"
     },
     touch: {
-        padding: 6,
+        justifyContent: "center",
         height: 44,
-        width: 44,
+        width: 44
+    },
+    dark: {
         borderRadius: 8,
         backgroundColor: COLORS.BLACK_BLUR
     },

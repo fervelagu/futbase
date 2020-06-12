@@ -3,11 +3,11 @@ import { StyleSheet, ImageBackground, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { COLORS, IMGS } from '../styles';
 
-export const Wrapper = ({ children, color }) => {
+export const Wrapper = ({ children, asset }) => {
     return (
-        <SafeAreaView style={styles.container}>
-            {!color ?
-                <ImageBackground source={IMGS.SPLASH} style={styles.bg}>
+        <>
+            {asset ?
+                <ImageBackground source={{ uri: asset }} resizeMode="cover" style={styles.assetBg}>
                     {children}
                 </ImageBackground>
                 :
@@ -15,13 +15,17 @@ export const Wrapper = ({ children, color }) => {
                     {children}
                 </View>
             }
-        </SafeAreaView>
+        </>
     )
 }
 
 const styles = StyleSheet.create({
     container: {
         backgroundColor: COLORS.TEAM_PRIMARY
+    },
+    assetBg: {
+        width: "100%",
+        height: 300
     },
     bg: {
         width: "100%",
