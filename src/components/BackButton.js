@@ -22,8 +22,7 @@ export const BackButton = ({ title, dark }) => {
 
 const styles = StyleSheet.create({
     container: {
-        flexDirection: "row",
-        alignItems: "center"
+        alignItems: "flex-start"
     },
     touch: {
         justifyContent: "center",

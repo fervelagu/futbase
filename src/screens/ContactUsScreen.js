@@ -5,16 +5,17 @@ import { Wrapper } from '../components/Wrapper';
 import { BackButton } from '../components/BackButton';
 import { COLORS } from '../styles';
 import { TEAM_MAIL } from '../constants/TeamConfig';
+import { i18n } from '../utils/i18n';
 
 export default class ContactUsScreen extends React.Component {
     render() {
         return (
             <Wrapper>
-                <BackButton title={"Contacto"} />
+                <BackButton title={i18n.t("Team.contactScreen.header")} />
                 <View style={styles.container}>
                     <View style={styles.sub}>
                         <Icon name={"md-mail"} style={styles.icon} />
-                        <Text style={styles.text}>Contáctanos en:</Text>
+                        <Text style={styles.text}>{i18n.t("Team.contactScreen.desc")}</Text>
                         <TouchableHighlight
                             underlayColor="transparent"
                             onPress={() => Linking.openURL(TEAM_MAIL)}>

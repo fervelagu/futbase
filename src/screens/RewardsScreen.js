@@ -1,10 +1,12 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { Wrapper } from '../components/Wrapper';
+import { NoData } from '../components/NoData';
 
 export default function RewardsScreen() {
     return (
         <Wrapper>
+            <NoData />
         </Wrapper>
     )
 }
