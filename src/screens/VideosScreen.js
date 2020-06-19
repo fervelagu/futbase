@@ -2,6 +2,7 @@ import React from 'react';
 import { FlatList } from 'react-native';
 import { Subscribe } from 'unstated';
 import { Video } from '../components/Video';
+import { NoData } from '../components/NoData';
 import videosContainer from '../containers/video.container';
 
 export default class VideosScreen extends React.Component {
@@ -60,6 +61,7 @@ export default class VideosScreen extends React.Component {
 
     renderView(container) {
         const { videos, refreshing } = container.state;
+        if (!!videos) return <NoData />;
         return (
             <FlatList
                 data={videos}

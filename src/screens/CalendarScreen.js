@@ -26,23 +26,25 @@ export default class CalendarScreen extends React.Component {
         const { matches } = homeContainer.state;
 
         let _dates = {}
-        matches.map(item => {
-            _dates[moment(item.globalDate).format('YYYY-MM-DD')] = {
-                id: item.id,
-                customStyles: {
-                    // backgroundSrc: IMGS.getTeamLogo(item),
-                    container: {
-                        backgroundColor: COLORS.TEAM_SECONDARY
-                    },
-                    text: {
-                        color: COLORS.TEAM_PRIMARY,
-                        fontWeight: 'bold'
+        if (matches) {
+            matches.map(item => {
+                _dates[moment(item.globalDate).format('YYYY-MM-DD')] = {
+                    id: item.id,
+                    customStyles: {
+                        // backgroundSrc: IMGS.getTeamLogo(item),
+                        container: {
+                            backgroundColor: COLORS.TEAM_SECONDARY
+                        },
+                        text: {
+                            color: COLORS.TEAM_PRIMARY,
+                            fontWeight: 'bold'
+                        }
                     }
                 }
-            }
-        })
+            })
+        }
 
-        homeContainer.setState(state => ({
+        await homeContainer.setState(state => ({
             ...state,
             dates: _dates
         }))

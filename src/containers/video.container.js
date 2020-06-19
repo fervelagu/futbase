@@ -7,7 +7,7 @@ class VideosContainer extends Container {
 		loading: false,
 		error: false,
 		refreshing: false,
-		videos: null,
+		videos: [],
 		total: 0
 	};
 

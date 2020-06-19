@@ -8,7 +8,7 @@ class HomeContainer extends Container {
 		error: false,
 		headerMatch: null,
 		matches: null,
-		dates: []
+		dates: {}
 	};
 
 	async getCurrentMatch() {
