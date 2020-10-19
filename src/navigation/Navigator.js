@@ -41,10 +41,10 @@ const BottomTabs = () => {
 				}}
 			/>
 			<BottomStack.Screen
-				name={i18n.t("Global.fan")}
-				component={FanNavigator}
+				name={i18n.t("Global.team")}
+				component={TeamNavigator}
 				options={{
-					tabBarIcon: ({ focused }) => <TabBarIcon name="md-person" focused={focused} />
+					tabBarIcon: ({ focused }) => <TabBarIcon name="md-flag" focused={focused} />
 				}}
 			/>
 			<BottomStack.Screen
@@ -55,17 +55,17 @@ const BottomTabs = () => {
 				}}
 			/>
 			<BottomStack.Screen
+				name={i18n.t("Global.fan")}
+				component={FanNavigator}
+				options={{
+					tabBarIcon: ({ focused }) => <TabBarIcon name="md-person" focused={focused} />
+				}}
+			/>
+			<BottomStack.Screen
 				name={i18n.t("Global.rewards")}
 				component={RewardsScreen}
 				options={{
 					tabBarIcon: ({ focused }) => <TabBarIcon name="md-trophy" focused={focused} />
-				}}
-			/>
-			<BottomStack.Screen
-				name={i18n.t("Global.team")}
-				component={TeamNavigator}
-				options={{
-					tabBarIcon: ({ focused }) => <TabBarIcon name="md-flag" focused={focused} />
 				}}
 			/>
 		</BottomStack.Navigator>

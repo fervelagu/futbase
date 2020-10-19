@@ -8,21 +8,22 @@ class HomeContainer extends Container {
 		error: false,
 		headerMatch: null,
 		matches: null,
-		dates: {}
+		tournaments: null,
+		tournament: null,
+		dates: {},
+		i: 0
 	};
 
 	async getCurrentMatch() {
 		await this.setState({ loading: true });
-		const res = await Http.get(
-			`${ENV.API_URL}team/${ENV.TEAM_ID}/match/current`
-		);
+		const res = await Http.get(`${ENV.API_URL}team/${ENV.TEAM_ID}/match/current`);
 
 		if (res.success) {
 			if (!res.data) {
 				await this.setState({
 					loading: false,
 					headerMatch: null,
-					noHeaderMatch: true,
+					noHeaderMatch: true
 				});
 			} else {
 				await this.setState({
@@ -32,14 +33,11 @@ class HomeContainer extends Container {
 				});
 			}
 		} else await this.setState({ loading: false, error: true });
-
 	}
 
 	async getCalendarMatches() {
 		await this.setState({ loading: true });
-		const res = await Http.get(
-			`${ENV.API_URL}team/${ENV.TEAM_ID}/match/`
-		);
+		const res = await Http.get(`${ENV.API_URL}team/${ENV.TEAM_ID}/match/`);
 
 		if (res.success) {
 			await this.setState({
@@ -47,6 +45,27 @@ class HomeContainer extends Container {
 				matches: res.data
 			});
 		} else await this.setState({ loading: false, error: true });
+	}
+
+	async getTournaments() {
+		await this.setState({ loading: true });
+		const res = await Http.get(`${ENV.API_URL}tournament?team_id=${ENV.TEAM_ID}`);
+
+		if (res.success) {
+			await this.setState({
+				loading: false,
+				tournaments: res.data
+			});
+		} else await this.setState({ loading: false, error: true });
+	}
+
+	async selectTournament() {
+		console.log(this.state.i)
+		console.log(this.state.tournaments.length)
+		if (this.state.i >= this.state.tournaments.length) return;
+		await this.setState({
+			tournament: this.state.tournaments[this.state.i]
+		});
 	}
 }
 
