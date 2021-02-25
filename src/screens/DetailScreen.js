@@ -15,7 +15,7 @@ export default class DetailScreen extends React.Component {
     }
 
     render() {
-        const { asset, title, desc } = this.state.post;
+        const { asset, title, description } = this.state.post;
         return (
             <View style={styles.container}>
                 <Wrapper asset={asset}>
@@ -27,7 +27,7 @@ export default class DetailScreen extends React.Component {
                             {title}
                         </Text>
                         <Text style={styles.descriptionLabel}>
-                            {desc}
+                            {description}
                         </Text>
                     </View>
                 </ScrollView>

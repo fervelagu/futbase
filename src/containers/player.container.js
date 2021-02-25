@@ -6,7 +6,7 @@ class PlayersContainer extends Container {
     state = {
         loading: false,
         error: false,
-        matches: null
+        players: null
     };
 
     async getPlayers() {
@@ -16,9 +16,9 @@ class PlayersContainer extends Container {
         if (res.success) {
             await this.setState({
                 loading: false,
-                teams: res.data
+                players: res.data
             });
-        } else await this.setState({ loading: false, error: true });
+        } else await this.setState({ loading: false, error: true, players: [] });
     }
 }
 
